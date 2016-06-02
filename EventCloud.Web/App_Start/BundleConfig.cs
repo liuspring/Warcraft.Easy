@@ -29,7 +29,7 @@ namespace EventCloud.Web
                         "~/Scripts/json2.min.js",
 
                         "~/Scripts/modernizr-2.8.3.js",
-                        
+
                         "~/Scripts/jquery-2.1.4.min.js",
                         "~/Scripts/jquery-ui-1.11.4.min.js",
 
@@ -75,6 +75,19 @@ namespace EventCloud.Web
                 new ScriptBundle("~/Bundles/App/Main/js")
                     .IncludeDirectory("~/App/Main", "*.js", true)
                 );
+
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                          "~/Content/bootstrap.css"
+                          ));
+
+            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
+                        "~/Scripts/modernizr-*"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+                      "~/Scripts/jquery-{version}.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                     "~/Scripts/bootstrap.js"));
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{DFA48E27-7D53-4955-A722-3D91A7119BE7}"
 	ProjectSection(SolutionItems) = preProject
@@ -23,6 +23,50 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{7E85C7E5-70BD-4C9D-B052-D95955F46609}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventCloud.Tests", "Tests\EventCloud.Tests\EventCloud.Tests.csproj", "{C602C47E-F379-40A3-A146-4F19105B3491}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resource", "Resource", "{905B130C-39B6-49AE-83AD-061398B3887E}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "detaildemo", "http://localhost:13178", "{66EBDA88-42E1-420A-843C-9A50719420F4}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_13178"
+		Debug.AspNetCompiler.PhysicalPath = "Resource\detaildemo\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_13178\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_13178"
+		Release.AspNetCompiler.PhysicalPath = "Resource\detaildemo\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_13178\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "Resource\detaildemo\"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AdminLTE-master", "http://localhost:13185", "{10776E82-6E33-4696-A690-8E2EE7B6F168}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_13185"
+		Debug.AspNetCompiler.PhysicalPath = "Resource\AdminLTE-master\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_13185\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_13185"
+		Release.AspNetCompiler.PhysicalPath = "Resource\AdminLTE-master\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_13185\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "Resource\AdminLTE-master\"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,11 +98,21 @@ Global
 		{C602C47E-F379-40A3-A146-4F19105B3491}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C602C47E-F379-40A3-A146-4F19105B3491}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C602C47E-F379-40A3-A146-4F19105B3491}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66EBDA88-42E1-420A-843C-9A50719420F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66EBDA88-42E1-420A-843C-9A50719420F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66EBDA88-42E1-420A-843C-9A50719420F4}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{66EBDA88-42E1-420A-843C-9A50719420F4}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{10776E82-6E33-4696-A690-8E2EE7B6F168}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10776E82-6E33-4696-A690-8E2EE7B6F168}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10776E82-6E33-4696-A690-8E2EE7B6F168}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{10776E82-6E33-4696-A690-8E2EE7B6F168}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C602C47E-F379-40A3-A146-4F19105B3491} = {7E85C7E5-70BD-4C9D-B052-D95955F46609}
+		{66EBDA88-42E1-420A-843C-9A50719420F4} = {905B130C-39B6-49AE-83AD-061398B3887E}
+		{10776E82-6E33-4696-A690-8E2EE7B6F168} = {905B130C-39B6-49AE-83AD-061398B3887E}
 	EndGlobalSection
 EndGlobal
