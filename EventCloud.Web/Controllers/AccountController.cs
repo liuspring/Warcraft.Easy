@@ -15,6 +15,7 @@ using Abp.Extensions;
 using Abp.Threading;
 using Abp.UI;
 using Abp.Web.Mvc.Models;
+using Common;
 using EventCloud.Authorization.Roles;
 using EventCloud.MultiTenancy;
 using EventCloud.Users;
@@ -23,11 +24,17 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MyCompanyName.AbpZeroTemplate.Web.Controllers.Results;
+using System.Drawing;
 
 namespace EventCloud.Web.Controllers
 {
     public class AccountController : EventCloudControllerBase
     {
+        private const int MWidth = 100;
+        private const int MHeight = 21;
+        private const int MCodeLen = 4;
+        private const string MPwdsalt = "_N_e_w_P_w_d_";
+
         private readonly TenantManager _tenantManager;
         private readonly UserManager _userManager;
         private readonly RoleManager _roleManager;
@@ -73,12 +80,52 @@ namespace EventCloud.Web.Controllers
                 });
         }
 
+        /// <summary>
+        /// 获取验证码
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult VerifyCode()
+        {
+            Session["VERIFYCODE"] = "";
+            var mText = Common.UtilityInfo.GenerateRandomText(MCodeLen);
+            Session["VERIFYCODE"] = mText;
+            return File(new Common.Captcha(mText, Color.Cornsilk, MWidth, MHeight).GetImageBytes(), @"image/jpeg");
+        }
+
+        public ActionResult LoginOld(string returnUrl = "")
+        {
+            if (string.IsNullOrWhiteSpace(returnUrl))
+            {
+                returnUrl = Request.ApplicationPath;
+            }
+
+            return View(
+                new LoginFormViewModel
+                {
+                    ReturnUrl = returnUrl,
+                    IsMultiTenancyEnabled = _multiTenancyConfig.IsEnabled
+                });
+        }
+
         [HttpPost]
         [DisableAuditing]
         public async Task<JsonResult> Login(LoginViewModel loginModel, string returnUrl = "")
         {
             CheckModelState();
-
+            //是否验证验证码
+            if (Config.IsNeedVerifyCode)
+            {
+                if (Session["VERIFYCODE"] == null)
+                {
+                    throw CreateExceptionForFailedLoginAttempt(AbpLoginResultType.UnknownExternalLogin, loginModel.UsernameOrEmailAddress, loginModel.TenancyName);
+                }
+                if (!Session["VERIFYCODE"].ToString().Equals(loginModel.VerifyCode, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    throw CreateExceptionForFailedLoginAttempt(AbpLoginResultType.UnknownExternalLogin, loginModel.UsernameOrEmailAddress, loginModel.TenancyName);
+                }
+                Session["VERIFYCODE"] = "";
+            }
+          
             var loginResult = await GetLoginResultAsync(
                 loginModel.UsernameOrEmailAddress,
                 loginModel.Password,
@@ -146,6 +193,12 @@ namespace EventCloud.Web.Controllers
         {
             AuthenticationManager.SignOut();
             return RedirectToAction("Login");
+        }
+
+        public ActionResult LogoutOld()
+        {
+            AuthenticationManager.SignOut();
+            return RedirectToAction("LoginOld");
         }
 
         #endregion

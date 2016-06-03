@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EventCloud.Web.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,7 @@ namespace AdminLteMvc.Controllers
     /// This is an example controller using the AdminLTE NuGet package's CSHTML templates, CSS, and JavaScript
     /// You can delete these, or use them as handy references when building your own applications
     /// </summary>
-    public class AdminLteController : Controller
+    public class AdminLteController : EventCloudControllerBase
     {
         /// <summary>
         /// The home page of the AdminLTE demo dashboard, recreated in this new system

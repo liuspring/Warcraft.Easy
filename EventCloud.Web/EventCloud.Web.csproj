@@ -369,6 +369,34 @@
     <Content Include="Content\flags\famfamfam-flags.png" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\res\pageui\images\share-bg.png" />
+    <Content Include="Content\res\passport\css\login.css" />
+    <Content Include="Content\res\passport\images\login-al.png" />
+    <Content Include="Content\res\passport\images\login-sep.png" />
+    <Content Include="Content\res\passport\images\tip-error.png" />
+    <Content Include="Content\res\passport\images\tip-right.png" />
+    <Content Include="Content\res\passport\images\toplogo.png" />
+    <Content Include="Content\res\plugin\images\icon_Sprite.png" />
+    <Content Include="Content\res\ui\css\base.css" />
+    <Content Include="Content\res\ui\css\screen.css" />
+    <Content Include="Content\res\ui\images\arrow-right.png" />
+    <Content Include="Content\res\ui\images\border-anim-h.gif" />
+    <Content Include="Content\res\ui\images\border-anim-v.gif" />
+    <Content Include="Content\res\ui\images\editor.png" />
+    <Content Include="Content\res\ui\images\icon-move.png" />
+    <Content Include="Content\res\ui\images\loading-h.gif" />
+    <Content Include="Content\res\ui\images\nav-1.png" />
+    <Content Include="Content\res\ui\images\nav-dropdown-icon-hover.png" />
+    <Content Include="Content\res\ui\images\nav-dropdown-icon.png" />
+    <Content Include="Content\res\ui\images\phone.png" />
+    <Content Include="Content\res\ui\images\preview-bg.png" />
+    <Content Include="Content\res\ui\images\scroll1.png" />
+    <Content Include="Content\res\ui\images\select.png" />
+    <Content Include="Content\res\ui\images\tip-error.png" />
+    <Content Include="Content\res\ui\images\tip-light.png" />
+    <Content Include="Content\res\ui\images\tip-right.png" />
+    <Content Include="Content\res\ui\images\type-selected.png" />
+    <Content Include="Content\res\ui\images\ui-bg.png" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -1784,7 +1812,7 @@
     <Content Include="Scripts\toastr.min.js" />
     <Content Include="Scripts\underscore.js" />
     <Content Include="Scripts\underscore.min.js" />
-    <Content Include="Views\Account\Login.js" />
+    <Content Include="Views\Account\LoginOld.js" />
     <Content Include="Views\Shared\Layout.css">
       <DependentUpon>Layout.less</DependentUpon>
     </Content>
@@ -1826,7 +1854,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\sweetalert\sweet-alert.scss" />
-    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\LoginOLd.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\RegisterResult.cshtml" />
     <Content Include="Views\Account\TenantSelection.cshtml" />
@@ -1844,6 +1872,10 @@
     <Content Include="Views\Shared\_AdminLteBreadcrumb.cshtml" />
     <Content Include="Views\AdminLte\Index.cshtml" />
     <Content Include="Views\AdminLte\Colors.cshtml" />
+    <Content Include="Views\Account\Login1.cshtml" />
+    <Content Include="Views\Account\Login2.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1853,6 +1885,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{0457041f-e667-470c-a3f6-dd507982250a}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EventCloud.Application\EventCloud.Application.csproj">
       <Project>{edf5d964-4c0f-4f19-b674-58a38a5e5401}</Project>
       <Name>EventCloud.Application</Name>
