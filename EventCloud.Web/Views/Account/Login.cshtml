@@ -25,61 +25,61 @@
         <div class="tab-con">
             <form id="form-login">
                 @*<form id="form-login" action="@(Url.Action("Login", "Account"))?returnUrl=@(Model.ReturnUrl)" method="POST">*@
-                    <div id='login-error' class="error-tip"></div>
-                    <table border="0" cellspacing="0" cellpadding="0">
-                        <tbody>
-                            <tr>
-                                <th>账户</th>
-                                <td width="245">
-                                    <input id="UsernameOrEmailAddress" type="text" name="UsernameOrEmailAddress" required="required" placeholder="请输入邮箱" autocomplete="off" value="">
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th>密码</th>
-                                <td width="245">
-                                    <input id="Password" type="password" name="Password" required="required" placeholder="请输入密码" autocomplete="off">
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr id="tr-vcode">
-                                <th>验证码</th>
-                                <td width="245">
-                                    <div class="valid">
-                                        <input type="text" id="VerifyCode" name="VerifyCode" required="required">
-                                        <img style="cursor: pointer;" title="点击刷新验证码" id="vcode_img" src="@Url.Action("VerifyCode")"
-                                             width="85" height="35" alt="点击获取验证码">
-                                    </div>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr class="find">
-                                <th></th>
-                                <td>
-                                    <div>
-                                        <label class="checkbox" for="RememberMe">
-                                            <input style="height: auto;" id="RememberMe" type="checkbox" name="RememberMe">记住我
-                                        </label>
-                                        <a href="#">忘记密码？</a>
-                                    </div>
-                                </td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th></th>
-                                <td width="245"><input class="confirm" id="btnLogin" type="submit" value="登  录"></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th></th>
-                                <td colspan="2">
-                                    <span id="errorMsg" style="color:red;" ></span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <input type="hidden" name="refer" value="site/">
-                </form>
+                <div id='login-error' class="error-tip"></div>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <tbody>
+                        <tr>
+                            <th>账户</th>
+                            <td width="245">
+                                <input id="UsernameOrEmailAddress" type="text" name="UsernameOrEmailAddress" required="required" placeholder="请输入邮箱" autocomplete="off" value="">
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>密码</th>
+                            <td width="245">
+                                <input id="Password" type="password" name="Password" required="required" placeholder="请输入密码" autocomplete="off">
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr id="tr-vcode">
+                            <th>验证码</th>
+                            <td width="245">
+                                <div class="valid">
+                                    <input type="text" id="VerifyCode" name="VerifyCode" required="required">
+                                    <img style="cursor: pointer;" title="点击刷新验证码" id="vcode_img" src="@Url.Action("VerifyCode")"
+                                         width="85" height="35" alt="点击获取验证码">
+                                </div>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr class="find">
+                            <th></th>
+                            <td>
+                                <div>
+                                    <label class="checkbox" for="RememberMe">
+                                        <input style="height: auto;" id="RememberMe" type="checkbox" name="RememberMe">记住我
+                                    </label>
+                                    <a href="#">忘记密码？</a>
+                                </div>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td width="245"><input class="confirm" id="btnLogin" type="submit" value="登  录"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td colspan="2">
+                                <span id="errorMsg" style="color:red;"></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <input type="hidden" name="refer" value="site/">
+            </form>
         </div>
         <div class="reg">
             <p>还没有账号？<br>赶快免费注册一个吧！</p>
@@ -98,7 +98,13 @@
         $("#vcode_img").click(function () {
             $('#vcode_img').attr('src', '/Account/VerifyCode?Rnd=' + Math.random());
         });
-
+        //按Enter键触发登录事件
+        $("body").keydown(function() {
+            if (event.keyCode == "13") {//keyCode=13是回车键
+                $("form").submit();
+            }
+        });
+        //登录事件
         $("form").submit(function () {
             var $this = $("btnLogin");
             $this.val("验证中").attr("disabled", "disabled");
@@ -111,7 +117,7 @@
                     VerifyCode: $("#VerifyCode").val(),
                     RememberMe: $("#RememberMe").attr("checked")
                 },
-                success:function(data) {
+                success: function (data) {
                     if (data.success) {
                         $this.val("跳转中...");
                         window.location = data.targetUrl;
@@ -125,7 +131,7 @@
             });
             return false;
         });
-
+        //显示登陆错误信息
         function setInfo(msg) {
             $("#errorMsg").addClass("show").html(msg);
             $("#btnLogin").val("登录").removeClass("disabled").removeAttr("disabled");

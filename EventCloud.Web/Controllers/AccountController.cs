@@ -604,5 +604,16 @@ namespace EventCloud.Web.Controllers
         }
 
         #endregion
+
+        #region Account Manager
+
+        public ActionResult AccountList()
+        {
+            return View();
+        }
+
+
+        #endregion
+
     }
 }
