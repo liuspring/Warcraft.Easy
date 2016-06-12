@@ -46,7 +46,8 @@
                             <th>验证码</th>
                             <td width="245">
                                 <div class="valid">
-                                    <input type="text" id="VerifyCode" name="VerifyCode" required="required">
+                                    @*<input type="text" id="VerifyCode" name="VerifyCode" required="required">*@
+                                    <input type="text" id="VerifyCode" name="VerifyCode">
                                     <img style="cursor: pointer;" title="点击刷新验证码" id="vcode_img" src="@Url.Action("VerifyCode")"
                                          width="85" height="35" alt="点击获取验证码">
                                 </div>

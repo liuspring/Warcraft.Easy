@@ -57,8 +57,8 @@
     @Html.IncludeScript("~/Abp/Framework/scripts/libs/abp.sweet-alert.js")
 
     <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->
-    <script src="~/api/AbpServiceProxies/GetAll"></script>
-    <script src="~/AbpScripts/GetScripts" type="text/javascript"></script>
+    @*<script src="~/api/AbpServiceProxies/GetAll"></script>
+    <script src="~/AbpScripts/GetScripts" type="text/javascript"></script>*@
 
     @RenderSection("Scripts", false)
 </head>

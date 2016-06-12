@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Abp.Application.Services;
 using EventCloud.Users.Dto;
@@ -9,5 +10,9 @@ namespace EventCloud.Users
         Task ProhibitPermission(ProhibitPermissionInput input);
 
         Task RemoveFromRole(long userId, string roleName);
+
+        List<AccountListOutput> FindAccountList(AccountListInput input);
+
+        int FindAccountListTotal(AccountListInput input);
     }
 }

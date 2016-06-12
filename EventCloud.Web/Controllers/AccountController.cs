@@ -20,6 +20,7 @@ using Common;
 using EventCloud.Authorization.Roles;
 using EventCloud.MultiTenancy;
 using EventCloud.Users;
+using EventCloud.Users.Dto;
 using EventCloud.Web.Models.Account;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -42,6 +43,8 @@ namespace EventCloud.Web.Controllers
         private readonly IUnitOfWorkManager _unitOfWorkManager;
         private readonly IMultiTenancyConfig _multiTenancyConfig;
 
+        private readonly IUserAppService _userAppService;
+
         private IAuthenticationManager AuthenticationManager
         {
             get
@@ -55,13 +58,15 @@ namespace EventCloud.Web.Controllers
             UserManager userManager,
             RoleManager roleManager,
             IUnitOfWorkManager unitOfWorkManager,
-            IMultiTenancyConfig multiTenancyConfig)
+            IMultiTenancyConfig multiTenancyConfig,
+            IUserAppService userAppService)
         {
             _tenantManager = tenantManager;
             _userManager = userManager;
             _roleManager = roleManager;
             _unitOfWorkManager = unitOfWorkManager;
             _multiTenancyConfig = multiTenancyConfig;
+            _userAppService = userAppService;
         }
 
         #region Login / Logout
@@ -607,17 +612,40 @@ namespace EventCloud.Web.Controllers
         #endregion
 
         #region Account Manager
-
-        public virtual async Task<ActionResult> AccountList()
+        /// <summary>
+        /// 用户列表
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult AccountList()
         {
-            using (_unitOfWorkManager.Current.DisableFilter(AbpDataFilters.MayHaveTenant))
-            {
-                var allUsers = _userManager.Users;
-            }
-           
             return View();
         }
 
+        /// <summary>
+        /// 获取用户列表信息
+        /// </summary>
+        /// <returns></returns>
+        public JsonResult AjaxAccountList()
+        {
+            DataTablesResponse response;
+            var input = new AccountListInput(Request);
+            var count = _userAppService.FindAccountListTotal(input);
+            if (count == 0)
+            {
+                response = new DataTablesResponse();
+            }
+            else
+            {
+                var data = _userAppService.FindAccountList(input);
+                response = new DataTablesResponse
+                {
+                    recordsTotal = count,
+                    data = data
+                };
+            }
+
+            return Json(response, JsonRequestBehavior.AllowGet);
+        }
 
         #endregion
 

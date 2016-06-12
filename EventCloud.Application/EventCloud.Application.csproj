@@ -96,6 +96,7 @@
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -103,6 +104,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataTablesResponse.cs" />
+    <Compile Include="DataTablesRequest.cs" />
     <Compile Include="EventCloudApplicationModule.cs" />
     <Compile Include="EventCloudAppServiceBase.cs" />
     <Compile Include="Events\Dtos\CreateEventInput.cs" />
@@ -118,6 +121,8 @@
     <Compile Include="Roles\Dto\UpdateRolePermissionsInput.cs" />
     <Compile Include="Statistics\IStatisticsAppService.cs" />
     <Compile Include="Statistics\StatisticsAppService.cs" />
+    <Compile Include="Users\Dto\AccountListInput.cs" />
+    <Compile Include="Users\Dto\AccountListOutput.cs" />
     <Compile Include="Users\IUserAppService.cs" />
     <Compile Include="Roles\RoleAppService.cs" />
     <Compile Include="Sessions\Dto\GetCurrentLoginInformationsOutput.cs" />

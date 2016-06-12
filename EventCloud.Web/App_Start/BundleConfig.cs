@@ -88,6 +88,15 @@ namespace EventCloud.Web
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                      "~/Scripts/bootstrap.js"));
+
+            //dataTables
+            bundles.Add(new StyleBundle("~/dataTables/css").Include(
+                      "~/Content/dataTables.bootstrap.css"));
+
+            bundles.Add(new ScriptBundle("~/dataTables/js").Include(
+                    "~/Scripts/AdminLTE/plugins/datatables/jquery.dataTables.js",
+                    "~/Scripts/AdminLTE/plugins/dataTables/dataTables.bootstrap.js",
+                    "~/Scripts/AdminLTE/plugins/dataTables/dataTables.js"));
         }
     }
 }
