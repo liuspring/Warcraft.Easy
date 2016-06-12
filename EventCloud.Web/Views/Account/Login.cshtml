@@ -106,7 +106,7 @@
         });
         //登录事件
         $("form").submit(function () {
-            var $this = $("btnLogin");
+            var $this = $("#btnLogin");
             $this.val("验证中").attr("disabled", "disabled");
             $.ajax({
                 type: "post",

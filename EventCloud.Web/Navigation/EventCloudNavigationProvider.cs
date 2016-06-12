@@ -29,6 +29,8 @@ namespace EventCloud.Web.Navigation
                         icon: "fa fa-info"
                         )
                 );
+
+
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Abp.Application.Navigation;
 using Abp.Application.Services;
 using Abp.IdentityFramework;
 using Abp.Runtime.Session;
@@ -22,7 +23,6 @@ namespace EventCloud
         {
             LocalizationSourceName = EventCloudConsts.LocalizationSourceName;
         }
-
         protected virtual Task<User> GetCurrentUserAsync()
         {
             var user = UserManager.FindByIdAsync(AbpSession.GetUserId());

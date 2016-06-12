@@ -1,14 +1,15 @@
-﻿@* 
- This partial controls the left menu of the AdminLTE dashboard and is called automatically by _AdminLteLayout
-    This is where you can add, modify, or remove navigation options in your app
-    TODO: This preserves the links as-is for the demo, which lead to broken pages!
-    It's up to you to make sure these links either get deleted or lead somewhere REAL!
+﻿@using Microsoft.Office.Interop.Excel
+@*
+    This partial controls the left menu of the AdminLTE dashboard and is called automatically by _AdminLteLayout
+       This is where you can add, modify, or remove navigation options in your app
+       TODO: This preserves the links as-is for the demo, which lead to broken pages!
+       It's up to you to make sure these links either get deleted or lead somewhere REAL!
 *@
 
 
 @{
     Layout = null;
-}
+}ss
 <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
@@ -44,9 +45,17 @@
                     <li><a href="@Url.Action("Colors","AdminLte")"><i class="fa fa-circle-o"></i> Colors</a></li>
                 </ul>
             </li>
-            <li>
+            <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-th"></i> <span>用户管理</span> <small class="label pull-right bg-green">新</small>
+                    <i class="fa fa-th"></i> <span>用户管理</span> <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="@Url.Action("AccountList", "Account")"><i class="fa fa-circle-o"></i>用户列表</a></li>
+                </ul>
+            </li>
+            <li class="treeview-menu">
+                <a href="#">
+                    <i class="fa fa-th"></i> <span>ABCD</span> <small class="label pull-right bg-green">新</small>
                 </a>
             </li>
             <li><a href="#"><i class="fa fa-circle-o text-info"></i> 个人信息</a></li>
