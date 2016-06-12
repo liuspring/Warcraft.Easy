@@ -12,6 +12,7 @@ using Abp.AutoMapper;
 using Abp.Configuration.Startup;
 using Abp.Domain.Uow;
 using Abp.Extensions;
+using Abp.Runtime.Session;
 using Abp.Threading;
 using Abp.UI;
 using Abp.Web.Mvc.Models;
@@ -125,7 +126,7 @@ namespace EventCloud.Web.Controllers
                 }
                 Session["VERIFYCODE"] = "";
             }
-          
+
             var loginResult = await GetLoginResultAsync(
                 loginModel.UsernameOrEmailAddress,
                 loginModel.Password,
@@ -607,8 +608,13 @@ namespace EventCloud.Web.Controllers
 
         #region Account Manager
 
-        public ActionResult AccountList()
+        public virtual async Task<ActionResult> AccountList()
         {
+            using (_unitOfWorkManager.Current.DisableFilter(AbpDataFilters.MayHaveTenant))
+            {
+                var allUsers = _userManager.Users;
+            }
+           
             return View();
         }
 
