@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Abp.Application.Navigation;
 using Abp.Application.Services;
@@ -18,6 +19,8 @@ namespace EventCloud
         public TenantManager TenantManager { get; set; }
 
         public UserManager UserManager { get; set; }
+
+        public IUserNavigationManager UserNavigationManager { get; set; }
 
         protected EventCloudAppServiceBase()
         {
@@ -42,6 +45,11 @@ namespace EventCloud
         protected virtual void CheckErrors(IdentityResult identityResult)
         {
             identityResult.CheckErrors(LocalizationManager);
+        }
+
+        protected virtual Task<IReadOnlyList<UserMenu>> GetMenus()
+        {
+            return UserNavigationManager.GetMenusAsync(AbpSession.UserId, AbpSession.TenantId);
         }
     }
 }

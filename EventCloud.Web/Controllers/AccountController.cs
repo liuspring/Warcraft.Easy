@@ -643,6 +643,7 @@ namespace EventCloud.Web.Controllers
                     data = result
                 };
             }
+
             return Json(response, JsonRequestBehavior.AllowGet);
         }
 

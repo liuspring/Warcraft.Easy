@@ -1,6 +1,9 @@
-﻿using Abp.IdentityFramework;
+﻿using System.Collections.Generic;
+using Abp.Application.Navigation;
+using Abp.IdentityFramework;
 using Abp.UI;
 using Abp.Web.Mvc.Controllers;
+using EventCloud.Users;
 using Microsoft.AspNet.Identity;
 
 namespace EventCloud.Web.Controllers
