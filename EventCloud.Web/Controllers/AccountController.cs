@@ -636,14 +636,13 @@ namespace EventCloud.Web.Controllers
             }
             else
             {
-                var data = _userAppService.FindAccountList(input);
-                response = new DataTablesResponse
+                var result = _userAppService.FindAccountList(input);
+                response = new DataTablesResponse()
                 {
                     recordsTotal = count,
-                    data = data
+                    data = result
                 };
             }
-
             return Json(response, JsonRequestBehavior.AllowGet);
         }
 

@@ -13,7 +13,7 @@ var initDataTables = function () {
             "dataType": "json",
             "data": aoData,
             "success": function (resp) {
-                fnCallback(resp); //服务器端返回的对象的returnObject部分是要求的格式
+                fnCallback(resp.result); //服务器端返回的对象的returnObject部分是要求的格式
             }
         });
         /* Post 方法调用
@@ -39,7 +39,7 @@ var initDataTables = function () {
                     "bFilter": false, //过滤功能
                     "bProcessing": true, //开启读取服务器数据时显示正在加载中……特别是大数据量的时候，开启此功能比较好
                     "bServerSide": true, //开启服务器模式，使用服务器端处理配置datatable。注意：sAjaxSource参数也必须被给予为了给datatable源代码来获取所需的数据对于每个画。 这个翻译有点别扭。
-                    "iDisplayLength": 10, //每页显示10条数据
+                    "iDisplayLength": 20, //每页显示10条数据
                     //ajax地址
                     "sAjaxSource": "", // get地址
                     //"sAjaxSource": "/Home/Home/UserListPost",// post地址
@@ -54,7 +54,7 @@ var initDataTables = function () {
                         [5, 15, 20, "All"] // change per page values here
                     ],
                     // set the initial value
-                    "pageLength": 10,
+                    "pageLength": 20,
                     ////向服务器传额外的参数
                     //"fnServerParams": function(aoData) {
                     //    aoData.push(

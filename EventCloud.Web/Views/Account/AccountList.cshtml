@@ -9,18 +9,63 @@
     });
 }
 @Styles.Render("~/dataTables/css")
+<div class="panel panel-default">
+    <div class="panel-body">
+        <select class="btn btn-white pull-left" id="condition" name="condition">
+            <option selected="selected" value="0">用户名称</option>
+            <option value="1">登录名</option>
+        </select>
+        <div class="col-md-5">
+            <div class="input-group">
+                <input class="form-control" name="content" value="" maxlength="50" />
+                <span class="input-group-btn">
+                    <button class="btn btn-success" type="button" id="btnSearch">
+                        搜索
+                    </button>
+                </span>
+            </div>
+        </div>
+        <a class="btn btn-primary pull-right" id="MultiSearch" data-toggle="collapse"
+           href="#search">筛选</a>
+    </div>
+</div>
+<div class="panel panel-default collapse" id="search">
+    <div class="panel-body">
+        <div class="form-group">
+            <label class="control-label pull-left">合同签署城市：</label>
+        </div>
+        <div class="form-group text-center">
+            <input type="button" id="btnOk" class="btn btn-success" value="确认" />
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="col-md-5">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button id="btnAdd" auth="128,694234" class="btn btn-success" data-toggle="modal"
+                            data-target="#AddModal" type="button">
+                        添加新用户
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="tab-content panel panel-default">
     <div class="panel-body active table-responsive">
-        <table id="tb_accountList" class="table table-bordered table-hover dataTable" style="overflow-x: scroll; width: 1300px;">
+        <table id="tb_accountList" class="table table-bordered table-hover dataTable">
             <thead>
                 <tr>
-                    <th>序号</th>
-                    <th>标题</th>
-                    <th>操作</th>
+                    <th>ID</th>
+                    <th>用户名称</th>
+                    <th>登录名</th>
+                    <th>用户状态</th>
+                    <th class="hidden">操作</th>
                 </tr>
             </thead>
-            <tbody>
-            </tbody>
+            <tbody></tbody>
         </table>
     </div>
 </div>
@@ -32,49 +77,60 @@
             src: $("#tb_accountList"),
             dataTable: {
                 "sAjaxSource": "@Url.Action("AjaxAccountList", "Account")", // get地址
-            //向服务器传额外的参数
-            "fnServerParams": function (aoData) {
-                aoData.push(
-                    //{ "name": "tab", "value": $("#navTab").val() }
-                ); //查询内容
-            },
-            //配置列要显示的数据
-            columns: [
-                //对应上面thead里面的序列 ;字段名字和返回的json序列的key对应
-                { "data": "Id" },
-                { "data": "Name" },
-                { "data": "UserName" }
-            ],
-            //按钮列
-            "columnDefs": [
-                {
-                    "render": function (data, type, row, me) {
-                        return me.settings._iDisplayStart + me.row + 1;
-                    },
-                    "targets": 0
+                "pageLength": 2,
+                //向服务器传额外的参数
+                "fnServerParams": function (aoData) {
+                    aoData.push(
+                        //{ "name": "tab", "value": $("#navTab").val() }
+                    ); //查询内容
                 },
-                //{
-                //    "render": function (data, type, row, me) {
-                //        var opt = "";
-                //        opt += '<a href="/Task/TaskEdit/' + data + '" class="btn default btn-xs green" title="编辑"><i class="fa fa-edit"></i>编辑</a>';
-                //        opt += '<a href="/Task/TaskView/' + data + '" class="btn default btn-xs green" title="查看详情"><i class="fa fa-eye"></i>查看详情</a>';
-                //        if (row.is_reminder == 0 && $("#navTab").val() == "1") {
-                //            opt += '<a href="###" data-value="' + data + '" class="btn default btn-xs green reminder" title="催单"><i class="fa fa-legal"></i>催单</a>';
-                //        }
-                //        return opt;
-                //    },
-                //    'orderable': false,
-                //    'class': "hidden",
-                //    "targets": 2
-                //}
-            ]
-        }
+                //配置列要显示的数据
+                columns: [
+                    //对应上面thead里面的序列 ;字段名字和返回的json序列的key对应
+                    { "data": "id" },
+                    { "data": "userName" },
+                    { "data": "emailAddress" },
+                    { "data": "isActive" },
+                    { "data": "id" }
+                ],
+                //按钮列
+                "columnDefs": [
+                    {
+                        "render": function (data, type, row, me) {
+                            return me.settings._iDisplayStart + me.row + 1;
+                        },
+                        "targets": 0
+                    },
+                     {
+                         "render": function (data, type, row, me) {
+                             if (data)
+                                 return "有效";
+                             return "无效";
+                         },
+                         "targets": 3
+                     },
+                    {
+                        "render": function (data, type, row, me) {
+                            var opt = "";
+                            opt += '<a href="/Task/TaskEdit/' + data + '" class="btn default btn-xs green" title="编辑"><i class="fa fa-edit"></i>编辑</a>';
+                            if (row.isActive) {
+                                opt += '<a href="/Task/TaskView/' + data + '" class="btn default btn-xs green" title="设为无效"><i class="fa fa-cog"></i>设为无效</a>';
+                            } else {
+                                opt += '<a href="/Task/TaskView/' + data + '" class="btn default btn-xs green" title="设为有效"><i class="fa fa-cog"></i>设为有效</a>';
+                            }
+                            return opt;
+                        },
+                        'orderable': false,
+                        'class': "hidden",
+                        "targets": 4
+                    }
+                ]
+            }
         });
-    //搜索
-    $("#btnsearch").click(function () {
-        grid.submitFilter();
-    });
+        //搜索
+        $("#btnsearch").click(function () {
+            grid.submitFilter();
+        });
 
     })
 </script>
-

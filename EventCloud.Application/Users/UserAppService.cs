@@ -40,8 +40,7 @@ namespace EventCloud.Users
             List<AccountListOutput> accountList;
             using (CurrentUnitOfWork.DisableFilter(AbpDataFilters.MayHaveTenant))
             {
-                //users = _userManager.Users.OrderBy(a => a.Id).Skip(input.iDisplayStart).Take(input.iDisplayLength).ToList<User>();
-               var users = _userManager.Users.ToList();
+               var users = _userManager.Users.OrderBy(a => a.Id).Skip(input.iDisplayStart).Take(input.iDisplayLength).ToList<User>();
                 accountList = users.MapTo<List<AccountListOutput>>();
             }
             return accountList;

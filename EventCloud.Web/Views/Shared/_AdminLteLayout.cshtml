@@ -1,9 +1,9 @@
-﻿@* 
- This is the main dashboard layout that creates the AdminLTE look and feel
-    It includes all of the relevant CSS and Js in this project and across CDNs around the web for optimal load times
-    TODO: Use this layout in your views by either setting the "Layout" property 
-    or changing your  _ViewStart.cshtml to use this layout
- *@
+﻿@*
+    This is the main dashboard layout that creates the AdminLTE look and feel
+       It includes all of the relevant CSS and Js in this project and across CDNs around the web for optimal load times
+       TODO: Use this layout in your views by either setting the "Layout" property
+       or changing your  _ViewStart.cshtml to use this layout
+*@
 @using System.Web.Optimization;
 <!DOCTYPE html>
 <html>
@@ -31,7 +31,7 @@
     <!-- Theme style -->
     <link href="~/Content/AdminLTE/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     @*TODO: AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load.*@
+        folder instead of downloading all of them to reduce the load.*@
     <link href="~/Content/AdminLTE/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -40,7 +40,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
     @Scripts.Render("~/bundles/modernizr")
-    
+
     @*js引入提前*@
     @* Bundles assume jquery 2.1.3 and Bootstrap 3 *@
     @Scripts.Render("~/bundles/jquery")
@@ -95,6 +95,18 @@
             <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
         </footer>
     </div><!-- ./wrapper -->
-   
+    <script type="text/javascript">
+        $(function () {
+            $("table.dataTable").delegate("tr", "click", function () {
+                $("tbody tr.temp").remove();
+                var $this = $(this);
+                var content = $this.find("td.hidden").html();
+                if (content != "" && content != undefined) {
+                    content = "<tr class='temp'><td colspan='30' class='text-center'>" + content + "</td></tr>";
+                    $this.after(content);
+                }
+            });
+        })
+    </script>
 </body>
 </html>
