@@ -96,7 +96,8 @@ namespace EventCloud.Users
                 throw new UserFriendlyException(L("FormIsNotValidMessage"));
             }
             user.UserName = input.UserName;
-            user.Password = new PasswordHasher().HashPassword(input.Password);
+            //ĞŞ¸ÄÃÜÂë
+            //user.Password = new PasswordHasher().HashPassword(input.Password);
 
             //Switch to the tenant
             //_unitOfWorkManager.Current.EnableFilter(AbpDataFilters.MayHaveTenant);

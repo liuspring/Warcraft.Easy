@@ -133,6 +133,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "login7", "http://localhost:
 		SlnRelativePath = "Resource\login7\"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuartzDemo", "Tests\QuartzDemo\QuartzDemo\QuartzDemo.csproj", "{2C8EF700-DB89-41D7-BA97-D4646A9DC227}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Backup_Release|Any CPU = Backup_Release|Any CPU
@@ -312,12 +314,27 @@ Global
 		{AAC4F0D9-5101-4B21-81AA-A864A10CD3E3}.Special_Release|Any CPU.Build.0 = Debug|Any CPU
 		{AAC4F0D9-5101-4B21-81AA-A864A10CD3E3}.Urgent_Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{AAC4F0D9-5101-4B21-81AA-A864A10CD3E3}.Urgent_Release|Any CPU.Build.0 = Debug|Any CPU
+		{2C8EF700-DB89-41D7-BA97-D4646A9DC227}.Backup_Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C8EF700-DB89-41D7-BA97-D4646A9DC227}.Backup_Release|Any CPU.Build.0 = Release|Any CPU
+		{2C8EF700-DB89-41D7-BA97-D4646A9DC227}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C8EF700-DB89-41D7-BA97-D4646A9DC227}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C8EF700-DB89-41D7-BA97-D4646A9DC227}.Normal_Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C8EF700-DB89-41D7-BA97-D4646A9DC227}.Normal_Release|Any CPU.Build.0 = Release|Any CPU
+		{2C8EF700-DB89-41D7-BA97-D4646A9DC227}.Performance_Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C8EF700-DB89-41D7-BA97-D4646A9DC227}.Performance_Release|Any CPU.Build.0 = Release|Any CPU
+		{2C8EF700-DB89-41D7-BA97-D4646A9DC227}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C8EF700-DB89-41D7-BA97-D4646A9DC227}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C8EF700-DB89-41D7-BA97-D4646A9DC227}.Special_Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C8EF700-DB89-41D7-BA97-D4646A9DC227}.Special_Release|Any CPU.Build.0 = Release|Any CPU
+		{2C8EF700-DB89-41D7-BA97-D4646A9DC227}.Urgent_Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C8EF700-DB89-41D7-BA97-D4646A9DC227}.Urgent_Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C602C47E-F379-40A3-A146-4F19105B3491} = {7E85C7E5-70BD-4C9D-B052-D95955F46609}
+		{2C8EF700-DB89-41D7-BA97-D4646A9DC227} = {7E85C7E5-70BD-4C9D-B052-D95955F46609}
 		{66EBDA88-42E1-420A-843C-9A50719420F4} = {905B130C-39B6-49AE-83AD-061398B3887E}
 		{10776E82-6E33-4696-A690-8E2EE7B6F168} = {905B130C-39B6-49AE-83AD-061398B3887E}
 		{6EB57E69-85A2-4C9D-98B6-C0A822D661F9} = {905B130C-39B6-49AE-83AD-061398B3887E}
