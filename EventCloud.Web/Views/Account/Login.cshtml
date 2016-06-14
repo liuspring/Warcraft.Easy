@@ -84,7 +84,7 @@
         </div>
         <div class="reg">
             <p>还没有账号？<br>赶快免费注册一个吧！</p>
-            <a class="reg-btn" href="#">我要撸</a>
+            <a class="reg-btn" href="@Url.Action("Register")">我要撸</a>
         </div>
     </div>
     <div id="footer">
@@ -100,7 +100,7 @@
             $('#vcode_img').attr('src', '/Account/VerifyCode?Rnd=' + Math.random());
         });
         //按Enter键触发登录事件
-        $("body").keydown(function() {
+        $("body").keydown(function () {
             if (event.keyCode == "13") {//keyCode=13是回车键
                 $("form").submit();
             }

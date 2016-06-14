@@ -1,6 +1,9 @@
-﻿@* 
- This partial controls the top menu of the AdminLTE Template, being called automatically by _AdminLteLayout
-    TODO: All of the content in here is stand-in that must be replaced by the real behavior of your app
+﻿@using Abp
+@using EventCloud
+@using EventCloud.Web.Controllers
+@*
+    This partial controls the top menu of the AdminLTE Template, being called automatically by _AdminLteLayout
+       TODO: All of the content in here is stand-in that must be replaced by the real behavior of your app
 *@
 
 @{
@@ -215,15 +218,37 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="/Content/AdminLTE/img/user2-160x160.jpg" class="user-image" alt="User Image" />
-                        <span class="hidden-xs">欢迎你：撸啦啦</span>
+                        @{
+                            EventCloud.Users.User user = null;
+                            if (Session["User"] != null)
+                            {
+                                user = (EventCloud.Users.User)Session["User"];
+                            }
+                            if (user == null)
+                            {
+                                Response.Redirect("~/account/login");
+                            }
+                        }
+                        <span class="hidden-xs">
+                            欢迎你：
+                            @if (user != null)
+                            {
+                                <b>@user.UserName</b>
+                                <small>(@user.EmailAddress)</small>
+                            }
+                        </span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
                             <img src="/Content/AdminLTE/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                             <p>
-                                撸啦啦 - 撸者无敌
-                                <small>Member since Nov. 2012</small>
+                                @if (user != null)
+                                {
+                                    <b>@user.UserName</b>
+                                    <small>(@user.EmailAddress)</small>
+                                }
+                                <small>@*Member since Nov. 2012*@</small>
                             </p>
                         </li>
                         <!-- Menu Body -->

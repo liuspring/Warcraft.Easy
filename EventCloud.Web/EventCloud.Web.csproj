@@ -365,6 +365,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrapValidator.css" />
+    <Content Include="Content\bootstrapValidator.min.css" />
     <Content Include="Content\flags\famfamfam-flags.css" />
     <Content Include="Content\flags\famfamfam-flags.png" />
     <Content Include="Content\font-awesome.css" />
@@ -932,6 +934,10 @@
     <Content Include="Scripts\AdminLTE\plugins\jQueryUI\jquery-ui-1.10.3.js" />
     <Content Include="Scripts\AdminLTE\plugins\jQueryUI\jquery-ui-1.10.3.min.js" />
     <Content Include="Scripts\AdminLTE\plugins\jQuery\jQuery-2.1.3.min.js" />
+    <Content Include="Scripts\AdminLTE\plugins\jshow\form.validate.js" />
+    <Content Include="Scripts\AdminLTE\plugins\jshow\jquery.ui.draggable.js" />
+    <Content Include="Scripts\AdminLTE\plugins\jshow\jshow.utils.js" />
+    <Content Include="Scripts\AdminLTE\plugins\jshow\modal.manager.plugin1.0.js" />
     <Content Include="Scripts\AdminLTE\plugins\jvectormap\jquery-jvectormap-1.2.2.css" />
     <Content Include="Scripts\AdminLTE\plugins\jvectormap\jquery-jvectormap-1.2.2.min.js" />
     <Content Include="Scripts\AdminLTE\plugins\jvectormap\jquery-jvectormap-world-mill-en.js" />
@@ -993,6 +999,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Scripts\bootstrapValidator.js" />
+    <Content Include="Scripts\bootstrapValidator.min.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\angular-touch.min.js.map" />
@@ -1835,6 +1843,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controllers\AdminLteController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Models\Account\RegisterTenantViewModel.cs" />
     <Compile Include="Navigation\AppPageNames.cs" />
     <Compile Include="Navigation\EventCloudNavigationProvider.cs" />
@@ -1884,7 +1893,8 @@
     <Content Include="Views\Account\Login2.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\AccountList.cshtml" />
+    <Content Include="Views\User\UserList.cshtml" />
+    <Content Include="Views\User\CreateUser.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

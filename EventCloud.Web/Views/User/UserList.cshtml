@@ -43,12 +43,7 @@
     <div class="panel-body">
         <div class="col-md-5">
             <div class="input-group">
-                <span class="input-group-btn">
-                    <button id="btnAdd" auth="128,694234" class="btn btn-success" data-toggle="modal"
-                            data-target="#AddModal" type="button">
-                        添加新用户
-                    </button>
-                </span>
+                <a href="@Url.Action("CreateUser")" class="btn btn-primary">添加新用户</a>
             </div>
         </div>
     </div>
@@ -76,8 +71,8 @@
         grid.init({
             src: $("#tb_accountList"),
             dataTable: {
-                "sAjaxSource": "@Url.Action("AjaxAccountList", "Account")", // get地址
-                "pageLength": 2,
+                "sAjaxSource": "@Url.Action("AjaxUserList", "User")", // get地址
+                //"pageLength": 2,
                 //向服务器传额外的参数
                 "fnServerParams": function (aoData) {
                     aoData.push(
@@ -112,12 +107,12 @@
                     {
                         "render": function (data, type, row, me) {
                             var opt = "";
-                            opt += '<a href="/Task/TaskEdit/' + data + '" class="btn default btn-xs green" title="编辑"><i class="fa fa-edit"></i>编辑</a>';
-                            if (row.isActive) {
-                                opt += '<a href="/Task/TaskView/' + data + '" class="btn default btn-xs green" title="设为无效"><i class="fa fa-cog"></i>设为无效</a>';
-                            } else {
-                                opt += '<a href="/Task/TaskView/' + data + '" class="btn default btn-xs green" title="设为有效"><i class="fa fa-cog"></i>设为有效</a>';
-                            }
+                            opt += '<a href="/User/CreateUser/' + data + '" class="btn default btn-xs green" title="编辑"><i class="fa fa-edit"></i>编辑</a>';
+                            //if (row.isActive) {
+                            //    opt += '<a href="/Task/TaskView/' + data + '" class="btn default btn-xs green" title="设为无效"><i class="fa fa-cog"></i>设为无效</a>';
+                            //} else {
+                            //    opt += '<a href="/Task/TaskView/' + data + '" class="btn default btn-xs green" title="设为有效"><i class="fa fa-cog"></i>设为有效</a>';
+                            //}
                             return opt;
                         },
                         'orderable': false,

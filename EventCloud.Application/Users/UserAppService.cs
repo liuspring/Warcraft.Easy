@@ -1,11 +1,21 @@
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
+using Abp.Application.Services.Dto;
 using Abp.Authorization;
+using Abp.Authorization.Users;
 using Abp.AutoMapper;
+using Abp.Domain.Repositories;
 using Abp.Domain.Uow;
+using Abp.UI;
+using AutoMapper;
+using EventCloud.MultiTenancy;
 using EventCloud.Users.Dto;
+using Abp.Extensions;
+using Microsoft.AspNet.Identity;
 
 namespace EventCloud.Users
 {
@@ -13,12 +23,22 @@ namespace EventCloud.Users
     public class UserAppService : EventCloudAppServiceBase, IUserAppService
     {
         private readonly UserManager _userManager;
+        private readonly TenantManager _tenantManager;
+        private readonly IUnitOfWorkManager _unitOfWorkManager;
         private readonly IPermissionManager _permissionManager;
+        private readonly IRepository<User, long> _useRepository;
 
-        public UserAppService(UserManager userManager, IPermissionManager permissionManager)
+        public UserAppService(TenantManager tenantManager,
+            UserManager userManager,
+            IUnitOfWorkManager unitOfWorkManager,
+            IPermissionManager permissionManager,
+            IRepository<User, long> useRepository)
         {
+            _tenantManager = tenantManager;
             _userManager = userManager;
+            _unitOfWorkManager = unitOfWorkManager;
             _permissionManager = permissionManager;
+            _useRepository = useRepository;
         }
 
         public async Task ProhibitPermission(ProhibitPermissionInput input)
@@ -35,25 +55,85 @@ namespace EventCloud.Users
             CheckErrors(await _userManager.RemoveFromRoleAsync(userId, roleName));
         }
 
-        public List<AccountListOutput> FindAccountList(AccountListInput input)
+        public async Task<ListResultOutput<UserListOutput>> GetList(UserListInput input)
         {
-            List<AccountListOutput> accountList;
             using (CurrentUnitOfWork.DisableFilter(AbpDataFilters.MayHaveTenant))
             {
-               var users = _userManager.Users.OrderBy(a => a.Id).Skip(input.iDisplayStart).Take(input.iDisplayLength).ToList<User>();
-                accountList = users.MapTo<List<AccountListOutput>>();
+                var users =
+                    await
+                        _userManager.Users.OrderBy(a => a.Id)
+                            .Skip(input.iDisplayStart)
+                            .Take(input.iDisplayLength)
+                            .ToListAsync();
+                return new ListResultOutput<UserListOutput>(users.MapTo<List<UserListOutput>>());
             }
-            return accountList;
         }
 
-        public int FindAccountListTotal(AccountListInput input)
+        public async Task<int> GetListTotal(UserListInput input)
         {
-            int count;
             using (CurrentUnitOfWork.DisableFilter(AbpDataFilters.MayHaveTenant))
             {
-                count = _userManager.Users.Count();
+                var users = await _userManager.Users.ToListAsync();
+                return users.Count;
             }
-            return count;
         }
+
+        public async Task Save(CreateUserInput input)
+        {
+            var tenant = await GetActiveTenantAsync(Tenant.DefaultTenantName);
+            var user = new User
+            {
+                Id = input.Id,
+                TenantId = tenant.Id,
+                Name = input.Name,
+                Surname = input.Surname,
+                EmailAddress = input.EmailAddress,
+                IsActive = true
+            };
+            //Username and Password are required if not external login
+            if (input.UserName.IsNullOrEmpty() || input.Password.IsNullOrEmpty())
+            {
+                throw new UserFriendlyException(L("FormIsNotValidMessage"));
+            }
+            user.UserName = input.UserName;
+            user.Password = new PasswordHasher().HashPassword(input.Password);
+
+            //Switch to the tenant
+            //_unitOfWorkManager.Current.EnableFilter(AbpDataFilters.MayHaveTenant);
+            //_unitOfWorkManager.Current.SetFilterParameter(AbpDataFilters.MayHaveTenant, AbpDataFilters.Parameters.TenantId, tenant.Id);
+            //Add default roles
+
+            //Save user
+            if (user.Id == 0)
+            {
+                await _useRepository.InsertAsync(user);
+                //CheckErrors(await _userManager.CreateAsync(user));
+            }
+            else
+            {
+                await _useRepository.UpdateAsync(user);
+                //CheckErrors(await _userManager.UpdateAsync(user));
+            }
+        }
+
+        #region Common private methods
+
+        private async Task<Tenant> GetActiveTenantAsync(string tenancyName)
+        {
+            var tenant = await _tenantManager.FindByTenancyNameAsync(tenancyName);
+            if (tenant == null)
+            {
+                throw new UserFriendlyException(L("ThereIsNoTenantDefinedWithName{0}", tenancyName));
+            }
+
+            if (!tenant.IsActive)
+            {
+                throw new UserFriendlyException(L("TenantIsNotActive", tenancyName));
+            }
+
+            return tenant;
+        }
+
+        #endregion
     }
 }

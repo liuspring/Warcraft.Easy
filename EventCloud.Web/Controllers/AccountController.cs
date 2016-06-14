@@ -12,7 +12,6 @@ using Abp.AutoMapper;
 using Abp.Configuration.Startup;
 using Abp.Domain.Uow;
 using Abp.Extensions;
-using Abp.Runtime.Session;
 using Abp.Threading;
 using Abp.UI;
 using Abp.Web.Mvc.Models;
@@ -20,7 +19,6 @@ using Common;
 using EventCloud.Authorization.Roles;
 using EventCloud.MultiTenancy;
 using EventCloud.Users;
-using EventCloud.Users.Dto;
 using EventCloud.Web.Models.Account;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -131,11 +129,11 @@ namespace EventCloud.Web.Controllers
                 }
                 Session["VERIFYCODE"] = "";
             }
-
             var loginResult = await GetLoginResultAsync(
                 loginModel.UsernameOrEmailAddress,
                 loginModel.Password,
-                loginModel.TenancyName
+                Tenant.DefaultTenantName
+                //loginModel.TenancyName
                 );
 
             await SignInAsync(loginResult.User, loginResult.Identity, loginModel.RememberMe);
@@ -144,7 +142,7 @@ namespace EventCloud.Web.Controllers
             {
                 returnUrl = Request.ApplicationPath;
             }
-
+            Session["User"] = loginResult.User;
             return Json(new MvcAjaxResponse { TargetUrl = returnUrl });
         }
 
@@ -611,43 +609,7 @@ namespace EventCloud.Web.Controllers
 
         #endregion
 
-        #region Account Manager
-        /// <summary>
-        /// 用户列表
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult AccountList()
-        {
-            return View();
-        }
 
-        /// <summary>
-        /// 获取用户列表信息
-        /// </summary>
-        /// <returns></returns>
-        public JsonResult AjaxAccountList()
-        {
-            DataTablesResponse response;
-            var input = new AccountListInput(Request);
-            var count = _userAppService.FindAccountListTotal(input);
-            if (count == 0)
-            {
-                response = new DataTablesResponse();
-            }
-            else
-            {
-                var result = _userAppService.FindAccountList(input);
-                response = new DataTablesResponse()
-                {
-                    recordsTotal = count,
-                    data = result
-                };
-            }
-
-            return Json(response, JsonRequestBehavior.AllowGet);
-        }
-
-        #endregion
 
     }
 }

@@ -97,6 +97,11 @@ namespace EventCloud.Web
                     "~/Scripts/AdminLTE/plugins/datatables/jquery.dataTables.js",
                     "~/Scripts/AdminLTE/plugins/dataTables/dataTables.bootstrap.js",
                     "~/Scripts/AdminLTE/plugins/dataTables/dataTables.js"));
+
+            // jshow
+            bundles.Add(new ScriptBundle("~/plugins/jshow").Include(
+                      "~/Scripts/AdminLTE/plugins/jshow/modal.manager.plugin1.0.js",
+                      "~/Scripts/AdminLTE/plugins/jshow/jshow.utils.js"));
         }
     }
 }

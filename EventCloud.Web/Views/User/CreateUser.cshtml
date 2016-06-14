@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = "创建用户";
+    ViewBag.TitleSmall = "";
+
+    ViewBag.Breadcrumb = new Breadcrumb(new Crumb[] {
+        new Crumb("用户管理", "", "fa-dashboard"),
+        new Crumb("用户列表", Url.Action("UserList"), ""),
+        new Crumb("创建账户","" , "")
+    });
+}
+<link href="~/Content/bootstrapValidator.min.css" rel="stylesheet" />
+@using System.Web.Optimization
+@model EventCloud.Users.Dto.CreateUserInput
+<div class="panel panel-default">
+    <div class="panel-body">
+        <form id="accountForm" action="@Url.Action("AjaxSaveUser")" class="form-horizontal">
+            <div class="hidden">
+                <input type="hidden" name="Id" value="@Model.Id" />
+            </div>
+            <div class="form-group">
+                <label for="Name" class="col-md-2 control-label">姓</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="Name" value="@Model.Surname"
+                           placeholder="姓" required maxlength="@EventCloud.Users.User.MaxNameLength">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Name" class="col-md-2 control-label">名</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="Surname" value="@Model.Surname"
+                           placeholder="名" required maxlength="@EventCloud.Users.User.MaxSurnameLength">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Name" class="col-md-2 control-label">邮箱地址</label>
+                <div class="col-md-6">
+                    <input type="email" class="form-control" name="EmailAddress" value="@Model.EmailAddress"
+                           placeholder="邮箱地址" required maxlength="@EventCloud.Users.User.MaxEmailAddressLength">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Name" class="col-md-2 control-label">用户名</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="UserName" value="@Model.UserName"
+                           placeholder="用户名" required maxlength="@EventCloud.Users.User.MaxUserNameLength">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Name" class="col-md-2 control-label">密码</label>
+                <div class="col-md-6">
+                    <input type="password" class="form-control" name="Password" value="@Model.Password"
+                           placeholder="密码" required maxlength="@EventCloud.Users.User.MaxPasswordLength">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Name" class="col-md-2 control-label">是否有效</label>
+                <div class="col-md-6">
+                    @Html.CheckBoxFor(a => a.IsActive)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-6 col-md-offset-2">
+                    <a href="@Url.Action("UserList")" cl class="btn btn-primary">返回列表</a>
+                    <button type="submit" id="btnSave" class="btn btn-primary">
+                        <i class="fa fa-sign-in"></i> 保存
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+@Scripts.Render("~/plugins/jshow")
+<script src="~/Scripts/bootstrapValidator.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#accountForm").bootstrapValidator({
+            message: '该值不可以为空',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            }
+            //,fields: {
+            //    task_title: {
+            //        validators: {
+            //            notEmpty: {
+            //                message: '任务标题不可为空！'
+            //            }
+            //        }
+            //    }
+            //}
+        }).on('success.form.bv', function (e) {//点击提交之后
+            // Prevent form submission
+            e.preventDefault();
+            // Get the form instance
+            var $form = $(e.target);
+            // Get the BootstrapValidator instance
+            var bv = $form.data('bootstrapValidator');
+            // Use Ajax to submit form data 提交至form标签中的action，result自定义
+            $.post($form.attr('action'), $form.serialize(), function (result) {
+                if (result.ret) {
+                    message_box.show('<h4>保存成功！</h4>', 'success');
+                    window.location.href = "@Url.Action("UserList")";
+                } else {
+                    message_box.show('<h4>保存失败：</h4>' + result.msg + '！', 'danger');
+                }
+            });
+        });
+
+    });
+</script>
