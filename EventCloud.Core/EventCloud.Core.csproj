@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Authorization\Roles\StaticRoleNames.cs" />
+    <Compile Include="Categorys\Category.cs" />
     <Compile Include="Configuration\EventCloudSettingNames.cs" />
     <Compile Include="Configuration\EventCloudSettingProvider.cs" />
     <Compile Include="Domain\Events\DomainEvents.cs" />
@@ -137,6 +138,7 @@
   <ItemGroup>
     <Content Include="Localization\Source\EventCloud-zh-CN.xml" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

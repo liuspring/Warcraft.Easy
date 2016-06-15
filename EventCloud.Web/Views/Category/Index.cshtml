@@ -1,23 +1,19 @@
 ﻿@using System.Web.Optimization
 @{
-    ViewBag.Title = "用户列表";
+    ViewBag.Title = "分类列表";
     ViewBag.TitleSmall = "";
 
     ViewBag.Breadcrumb = new Breadcrumb(new Crumb[] {
-        new Crumb("用户管理", "", "fa-dashboard"),
-        new Crumb("用户列表", "", "")
+        new Crumb("任务管理", "", "fa-dashboard"),
+        new Crumb("分类列表", "", "")
     });
 }
 @Styles.Render("~/dataTables/css")
 <div class="panel panel-default">
     <div class="panel-body">
-        <select class="btn btn-white pull-left" id="condition" name="condition">
-            <option selected="selected" value="0">用户名称</option>
-            <option value="1">登录名</option>
-        </select>
-        <div class="col-md-5">
+        <div class="col-md-6">
             <div class="input-group">
-                <input class="form-control" name="content" value="" maxlength="50" />
+                <input class="form-control" name="name" placeholder="请输入分类名称" value="" maxlength="50" />
                 <span class="input-group-btn">
                     <button class="btn btn-success" type="button" id="btnSearch">
                         搜索
@@ -25,38 +21,26 @@
                 </span>
             </div>
         </div>
-        <a class="btn btn-primary pull-right" id="MultiSearch" data-toggle="collapse"
-           href="#search">筛选</a>
     </div>
 </div>
-<div class="panel panel-default collapse" id="search">
-    <div class="panel-body">
-        <div class="form-group">
-            <label class="control-label pull-left">合同签署城市：</label>
-        </div>
-        <div class="form-group text-center">
-            <input type="button" id="btnOk" class="btn btn-success" value="确认" />
-        </div>
-    </div>
-</div>
+
 <div class="panel panel-default">
     <div class="panel-body">
         <div class="col-md-5">
             <div class="input-group">
-                <a href="@Url.Action("CreateUser")" class="btn btn-primary">新增</a>
+                <a href="@Url.Action("Create")" class="btn btn-primary">新增</a>
             </div>
         </div>
     </div>
 </div>
 <div class="tab-content panel panel-default">
     <div class="panel-body active table-responsive">
-        <table id="tb_accountList" class="table table-bordered table-hover dataTable">
+        <table id="tb_category" class="table table-bordered table-hover dataTable">
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>用户名称</th>
-                    <th>登录名</th>
-                    <th>用户状态</th>
+                    <th>分类名称</th>
+                    <th>创建时间</th>
                     <th class="hidden">操作</th>
                 </tr>
             </thead>
@@ -69,9 +53,9 @@
     $(function () {
         var grid = new initDataTables();
         grid.init({
-            src: $("#tb_accountList"),
+            src: $("#tb_category"),
             dataTable: {
-                "sAjaxSource": "@Url.Action("AjaxUserList", "User")", // get地址
+                "sAjaxSource": "@Url.Action("AjaxCategoryList","Category")", // get地址
                 //"pageLength": 2,
                 //向服务器传额外的参数
                 "fnServerParams": function (aoData) {
@@ -82,11 +66,10 @@
                 //配置列要显示的数据
                 columns: [
                     //对应上面thead里面的序列 ;字段名字和返回的json序列的key对应
-                    { "data": "id" },
-                    { "data": "userName" },
-                    { "data": "emailAddress" },
-                    { "data": "isActive" },
-                    { "data": "id" }
+                    { "data": "Id" },
+                    { "data": "CategoryName" },
+                    { "data": "SCreationTime" },
+                    { "data": "Id" }
                 ],
                 //按钮列
                 "columnDefs": [
@@ -96,14 +79,6 @@
                         },
                         "targets": 0
                     },
-                     {
-                         "render": function (data, type, row, me) {
-                             if (data)
-                                 return "有效";
-                             return "无效";
-                         },
-                         "targets": 3
-                     },
                     {
                         "render": function (data, type, row, me) {
                             var opt = "";
@@ -117,7 +92,7 @@
                         },
                         'orderable': false,
                         'class': "hidden",
-                        "targets": 4
+                        "targets": 3
                     }
                 ]
             }

@@ -122,6 +122,10 @@
     <Compile Include="Migrations\201606021559274_InitDatabase.Designer.cs">
       <DependentUpon>201606021559274_InitDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606150558470_CreateCategory.cs" />
+    <Compile Include="Migrations\201606150558470_CreateCategory.Designer.cs">
+      <DependentUpon>201606150558470_CreateCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\DefaultTenantRoleAndUserBuilder.cs" />
     <Compile Include="Migrations\SeedData\InitialDataBuilder.cs" />
@@ -142,6 +146,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201606021559274_InitDatabase.resx">
       <DependentUpon>201606021559274_InitDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606150558470_CreateCategory.resx">
+      <DependentUpon>201606150558470_CreateCategory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

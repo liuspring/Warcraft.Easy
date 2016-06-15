@@ -104,6 +104,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Categorys\CategoyAppService.cs" />
+    <Compile Include="Categorys\Dto\CategoryListInput.cs" />
+    <Compile Include="Categorys\Dto\CategoryListOutput.cs" />
+    <Compile Include="Categorys\Dto\CreateCateoryInput.cs" />
+    <Compile Include="Categorys\ICategoyAppService.cs" />
     <Compile Include="DataTablesResponse.cs" />
     <Compile Include="DataTablesRequest.cs" />
     <Compile Include="EventCloudApplicationModule.cs" />

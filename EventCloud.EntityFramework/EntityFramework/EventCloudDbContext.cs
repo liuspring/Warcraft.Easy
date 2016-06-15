@@ -2,24 +2,27 @@
 using System.Data.Entity;
 using Abp.Zero.EntityFramework;
 using EventCloud.Authorization.Roles;
+using EventCloud.Categorys;
 using EventCloud.Events;
 using EventCloud.MultiTenancy;
 using EventCloud.Users;
 
 namespace EventCloud.EntityFramework
 {
-     [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
+    [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
     public class EventCloudDbContext : AbpZeroDbContext<Tenant, Role, User>
     {
         public virtual IDbSet<Event> Events { get; set; }
 
         public virtual IDbSet<EventRegistration> EventRegistrations { get; set; }
 
+        public virtual IDbSet<Category> Categories { get; set; }
+
         /* NOTE: 
-         *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.
-         *   But it may cause problems when working Migrate.exe of EF. If you will apply migrations on command line, do not
-         *   pass connection string name to base classes. ABP works either way.
-         */
+        *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.
+        *   But it may cause problems when working Migrate.exe of EF. If you will apply migrations on command line, do not
+        *   pass connection string name to base classes. ABP works either way.
+        */
         public EventCloudDbContext()
             : base("Default")
         {

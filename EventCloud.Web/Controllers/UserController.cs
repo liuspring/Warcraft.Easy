@@ -71,15 +71,15 @@ namespace EventCloud.Web.Controllers
         /// <summary>
         /// 保存用户
         /// </summary>
-        /// <param name="model"></param>
+        /// <param name="input"></param>
         /// <returns></returns>
-        public JsonResult AjaxSaveUser(CreateUserInput model)
+        public JsonResult AjaxSaveUser(CreateUserInput input)
         {
             var res = new JsonResult();
             try
             {
                 CheckModelState();
-                _userAppService.Save(model);
+                _userAppService.Save(input);
                 res.Data = new { ret = true };
             }
             catch (Exception ex)

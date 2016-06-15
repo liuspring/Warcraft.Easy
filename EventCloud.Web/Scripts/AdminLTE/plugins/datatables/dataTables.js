@@ -13,7 +13,7 @@ var initDataTables = function () {
             "dataType": "json",
             "data": aoData,
             "success": function (resp) {
-                fnCallback(resp.result); //服务器端返回的对象的returnObject部分是要求的格式
+                fnCallback(resp); //服务器端返回的对象的returnObject部分是要求的格式
             }
         });
         /* Post 方法调用
