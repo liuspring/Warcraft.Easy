@@ -1,24 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Abp.Domain.Entities.Auditing;
 
 namespace EventCloud.Categorys
 {
     [Table("qrtz_category")]
-    public class Category : FullAuditedEntity
+    [Description("任务分类表")]
+    public class Category : BaseEntity
     {
-
-        [Column("id")]
-        public override int Id { get; set; }
-
         [Required]
         [StringLength(50)]
         [Column("category_name")]
+        [Description("分类名称")]
         public string CategoryName { get; set; }
 
         protected Category()

@@ -2,7 +2,6 @@
 using System.Data.Entity;
 using Abp.Zero.EntityFramework;
 using EventCloud.Authorization.Roles;
-using EventCloud.Categorys;
 using EventCloud.Events;
 using EventCloud.MultiTenancy;
 using EventCloud.Users;
@@ -16,7 +15,27 @@ namespace EventCloud.EntityFramework
 
         public virtual IDbSet<EventRegistration> EventRegistrations { get; set; }
 
-        public virtual IDbSet<Category> Categories { get; set; }
+        public virtual IDbSet<Categorys.Category> Categories { get; set; }
+
+        public virtual IDbSet<Nodes.Node> Nodes { get; set; }
+
+        public virtual IDbSet<Tasks.Task> Tasks { get; set; }
+
+        public virtual IDbSet<Commands.Command> Commands { get; set; }
+
+        public virtual IDbSet<TempDatas.TempData> TempDatas { get; set; }
+
+        public virtual IDbSet<Versions.VersionInfo> Versions { get; set; }
+
+        public virtual IDbSet<Performances.Performance> Performances { get; set; }
+
+        public virtual IDbSet<Errors.Error> Errors { get; set; }
+
+        public virtual IDbSet<Logs.Log> Logs { get; set; }
+
+
+
+
 
         /* NOTE: 
         *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.

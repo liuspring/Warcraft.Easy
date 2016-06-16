@@ -96,11 +96,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Authorization\Roles\StaticRoleNames.cs" />
+    <Compile Include="BaseEntity.cs" />
     <Compile Include="Categorys\Category.cs" />
+    <Compile Include="Commands\Command.cs" />
     <Compile Include="Configuration\EventCloudSettingNames.cs" />
     <Compile Include="Configuration\EventCloudSettingProvider.cs" />
     <Compile Include="Domain\Events\DomainEvents.cs" />
     <Compile Include="Editions\EditionManager.cs" />
+    <Compile Include="Errors\Error.cs" />
     <Compile Include="EventCloudConsts.cs" />
     <Compile Include="EventCloudCoreModule.cs" />
     <Compile Include="Authorization\PermissionChecker.cs" />
@@ -115,15 +118,21 @@
     <Compile Include="Events\IEventManager.cs" />
     <Compile Include="Events\IEventRegistrationPolicy.cs" />
     <Compile Include="Features\FeatureValueStore.cs" />
+    <Compile Include="Logs\Log.cs" />
     <Compile Include="MultiTenancy\Tenant.cs" />
     <Compile Include="MultiTenancy\TenantManager.cs" />
+    <Compile Include="Nodes\Node.cs" />
+    <Compile Include="Performances\Performance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Authorization\Roles\Role.cs" />
     <Compile Include="Authorization\Roles\RoleManager.cs" />
     <Compile Include="Authorization\Roles\RoleStore.cs" />
+    <Compile Include="Tasks\Task.cs" />
+    <Compile Include="TempDatas\TempData.cs" />
     <Compile Include="Users\User.cs" />
     <Compile Include="Users\UserManager.cs" />
     <Compile Include="Users\UserStore.cs" />
+    <Compile Include="Versions\Version.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
