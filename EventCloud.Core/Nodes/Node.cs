@@ -53,5 +53,19 @@ namespace EventCloud.Nodes
         /// </summary>
         [ForeignKey("NodeId")]
         public virtual ICollection<Performances.Performance> Performances { get; protected set; }
+
+        protected Node()
+        {
+        }
+
+        public static Node Create(string nodeName, string nodeIp)
+        {
+            var node = new Node
+            {
+                NodeName = nodeName,
+                NodeIp = nodeIp
+            };
+            return node;
+        }
     }
 }

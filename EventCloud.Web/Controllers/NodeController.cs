@@ -1,39 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using EventCloud.Categorys;
-using EventCloud.Categorys.Dto;
+using EventCloud.Nodes;
+using EventCloud.Nodes.Dto;
 
 namespace EventCloud.Web.Controllers
 {
-    public class CategoryController : Controller
+    public class NodeController : Controller
     {
-
-        private readonly ICategoyAppService _categoyAppService;
-
-        public CategoryController(ICategoyAppService categoyAppService)
+        private readonly INodeAppService _nodeAppService;
+        public NodeController(INodeAppService nodeAppService)
         {
-            _categoyAppService = categoyAppService;
+            _nodeAppService = nodeAppService;
         }
 
         //
-        // GET: /Category/
+        // GET: /Node/
         public ActionResult Index()
         {
             return View();
         }
 
         /// <summary>
-        /// 获得分类列表
+        /// 获得节点列表
         /// </summary>
         /// <returns></returns>
-        public JsonResult AjaxCategoryList()
+        public JsonResult AjaxNodeList()
         {
-            var input = new CategoryListInput(Request);
-            var count = _categoyAppService.GetListTotal(input);
-            var result = count == 0 ? new List<CategoryListOutput>() : _categoyAppService.GetList(input);
+            var input = new NodeListInput(Request);
+            var count = _nodeAppService.GetListTotal(input);
+            var result = count == 0 ? new List<NodeListOutput>() : _nodeAppService.GetList(input);
             var response = new DataTablesResponse
             {
                 recordsTotal = count,
@@ -42,31 +38,30 @@ namespace EventCloud.Web.Controllers
             return Json(response, JsonRequestBehavior.AllowGet);
         }
 
-
         //
-        // GET: /Category/Details/5
+        // GET: /Node/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
         //
-        // GET: /Category/Create
+        // GET: /Node/Create
         public ActionResult Create()
         {
             return View();
         }
 
         //
-        // POST: /Category/Create
+        // POST: /Node/Create
         [HttpPost]
-        public JsonResult AjaxCreate(CreateCateoryInput input)
+        public ActionResult AjaxCreate(CreateNodeInput input)
         {
             var res = new JsonResult();
             try
             {
                 // TODO: Add insert logic here
-                _categoyAppService.Create(input);
+                _nodeAppService.Create(input);
                 res.Data = new { ret = true };
             }
             catch (Exception ex)
@@ -77,14 +72,14 @@ namespace EventCloud.Web.Controllers
         }
 
         //
-        // GET: /Category/Edit/5
+        // GET: /Node/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
         //
-        // POST: /Category/Edit/5
+        // POST: /Node/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -101,14 +96,14 @@ namespace EventCloud.Web.Controllers
         }
 
         //
-        // GET: /Category/Delete/5
+        // GET: /Node/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
         //
-        // POST: /Category/Delete/5
+        // POST: /Node/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

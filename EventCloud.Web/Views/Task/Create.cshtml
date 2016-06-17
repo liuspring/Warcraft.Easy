@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "添加任务";
+    ViewBag.TitleSmall = "";
+
+    ViewBag.Breadcrumb = new Breadcrumb(new Crumb[] {
+        new Crumb("任务管理", "", "fa-dashboard"),
+        new Crumb("任务列表", Url.Action("Index"), ""),
+        new Crumb("添加任务","" , "")
+    });
+}
+<link href="~/Content/bootstrapValidator.min.css" rel="stylesheet" />
+@using System.Web.Optimization
+<div class="panel panel-default">
+    <div class="panel-body">
+        <form id="categoryForm" action="@Url.Action("AjaxCreate")" class="form-horizontal">
+            <div class="form-group">
+                <label for="TaskName" class="col-md-2 control-label">任务名称</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="TaskName" value=""
+                           placeholder="请输入任务名称" required maxlength="@EventCloud.Categorys.Dto.CreateCateoryInput.MaxCategoryNameLength">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="CategoryId" class="col-md-2 control-label">分类</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="CategoryId" value=""
+                           placeholder="请输入任务名称" required maxlength="@EventCloud.Categorys.Dto.CreateCateoryInput.MaxCategoryNameLength">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="NodeId" class="col-md-2 control-label">节点</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="NodeId" value=""
+                           placeholder="请输入任务名称" required maxlength="@EventCloud.Categorys.Dto.CreateCateoryInput.MaxCategoryNameLength">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="AppConfigJson" class="col-md-2 control-label">配置json</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="AppConfigJson" value=""
+                           placeholder="请输入任务名称" required maxlength="@EventCloud.Categorys.Dto.CreateCateoryInput.MaxCategoryNameLength">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="Cron" class="col-md-2 control-label">Cron表达式</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="Cron" value=""
+                           placeholder="请输入任务名称" required maxlength="@EventCloud.Categorys.Dto.CreateCateoryInput.MaxCategoryNameLength">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="MainClassDllFileName" class="col-md-2 control-label">任务入口类的命名空间</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="MainClassDllFileName" value=""
+                           placeholder="请输入任务名称" required maxlength="@EventCloud.Categorys.Dto.CreateCateoryInput.MaxCategoryNameLength">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="MainClassNameSpace" class="col-md-2 control-label">任务入口dll文件名</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="MainClassNameSpace" value=""
+                           placeholder="请输入任务名称" required maxlength="@EventCloud.Categorys.Dto.CreateCateoryInput.MaxCategoryNameLength">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Remark" class="col-md-2 control-label">备注</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="Remark" value=""
+                           placeholder="请输入任务名称" required maxlength="@EventCloud.Categorys.Dto.CreateCateoryInput.MaxCategoryNameLength">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-6 col-md-offset-2">
+                    <a href="@Url.Action("Index")" class="btn btn-primary">返回列表</a>
+                    <button type="submit" id="btnSave" class="btn btn-primary">
+                        <i class="fa fa-sign-in"></i> 保存
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+@Scripts.Render("~/plugins/jshow")
+<script src="~/Scripts/bootstrapValidator.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#categoryForm").bootstrapValidator({
+            message: '该值不可以为空',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            }
+        }).on('success.form.bv', function (e) {//点击提交之后
+            e.preventDefault();
+            var $form = $(e.target);
+            var bv = $form.data('bootstrapValidator');
+            $.post($form.attr('action'), $form.serialize(), function (result) {
+                if (result.ret) {
+                    message_box.show('<h4>保存成功！</h4>', 'success');
+                    window.location.href = "@Url.Action("Index")";
+                } else {
+                    message_box.show('<h4>保存失败：</h4>' + result.msg + '！', 'danger');
+                }
+            });
+        });
+    });
+</script>

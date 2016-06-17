@@ -1860,6 +1860,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controllers\AdminLteController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\CommandController.cs" />
+    <Compile Include="Controllers\NodeController.cs" />
+    <Compile Include="Controllers\TaskController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Models\Account\RegisterTenantViewModel.cs" />
     <Compile Include="Navigation\AppPageNames.cs" />
@@ -1914,6 +1917,12 @@
     <Content Include="Views\User\CreateUser.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Category\Create.cshtml" />
+    <Content Include="Views\Node\Index.cshtml" />
+    <Content Include="Views\Node\Create.cshtml" />
+    <Content Include="Views\Task\Index.cshtml" />
+    <Content Include="Views\Task\Create.cshtml" />
+    <Content Include="Views\Command\Index.cshtml" />
+    <Content Include="Views\Command\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

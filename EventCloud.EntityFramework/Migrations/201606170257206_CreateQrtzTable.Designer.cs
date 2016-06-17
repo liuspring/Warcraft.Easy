@@ -7,13 +7,13 @@ namespace EventCloud.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class InitDatabase : IMigrationMetadata
+    public sealed partial class CreateQrtzTable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitDatabase));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CreateQrtzTable));
         
         string IMigrationMetadata.Id
         {
-            get { return "201606021559274_InitDatabase"; }
+            get { return "201606170257206_CreateQrtzTable"; }
         }
         
         string IMigrationMetadata.Source

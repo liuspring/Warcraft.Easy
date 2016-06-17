@@ -16,7 +16,7 @@ namespace EventCloud.Categorys.Dto
 
         public string SCreationTime
         {
-            get { return CreationTime.ToString("yy-MM-dd HH:mm:ss"); }
+            get { return CreationTime.ToString("yyyy-MM-dd HH:mm:ss"); }
         }
 
     }

@@ -44,5 +44,18 @@ namespace EventCloud.Commands
         [Description("任务ID")]
         public int TaskId { get; set; }
 
+        public static Command Create(string cmdName, string cmd, byte cmdState, int nodeId, int taskId)
+        {
+            var command = new Command
+            {
+                CmdName = cmdName,
+                Cmd = cmd,
+                CmdState = cmdState,
+                NodeId = nodeId,
+                TaskId = taskId
+            };
+            return command;
+        }
+
     }
 }
