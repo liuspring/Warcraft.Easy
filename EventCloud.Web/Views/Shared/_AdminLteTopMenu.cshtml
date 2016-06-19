@@ -226,7 +226,7 @@
                             }
                             if (user == null)
                             {
-                                Response.Redirect("~/account/login");
+                                Response.Redirect("~/account/login?ReturnUrl=" + Request.Url.PathAndQuery);
                             }
                         }
                         <span class="hidden-xs">

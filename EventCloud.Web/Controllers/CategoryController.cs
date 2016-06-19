@@ -8,7 +8,7 @@ using EventCloud.Categorys.Dto;
 
 namespace EventCloud.Web.Controllers
 {
-    public class CategoryController : Controller
+    public class CategoryController : EventCloudControllerBase
     {
 
         private readonly ICategoyAppService _categoyAppService;
@@ -60,7 +60,7 @@ namespace EventCloud.Web.Controllers
         //
         // POST: /Category/Create
         [HttpPost]
-        public JsonResult AjaxCreate(CreateCateoryInput input)
+        public JsonResult AjaxCreate(CreateCategoryInput input)
         {
             var res = new JsonResult();
             try

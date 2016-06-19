@@ -16,7 +16,7 @@ namespace EventCloud.Categorys
         }
 
 
-        public int Create(CreateCateoryInput input)
+        public int Create(CreateCategoryInput input)
         {
             var category = Category.Create(input.CategoryName);
             _categoryRepository.Insert(category);
@@ -36,6 +36,11 @@ namespace EventCloud.Categorys
         public int GetListTotal(CategoryListInput input)
         {
             return _categoryRepository.GetAllList().Count;
+        }
+
+        public List<Category> GetAllList()
+        {
+            return _categoryRepository.GetAllList();
         }
     }
 }

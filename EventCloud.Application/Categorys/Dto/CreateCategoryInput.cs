@@ -5,7 +5,7 @@ using Abp.AutoMapper;
 namespace EventCloud.Categorys.Dto
 {
     [AutoMapFrom(typeof(Category))]
-    public class CreateCateoryInput : IInputDto
+    public class CreateCategoryInput : IInputDto
     {
         public const int MaxCategoryNameLength = 50; 
 

@@ -126,6 +126,10 @@
     <Compile Include="Migrations\201606170257206_CreateQrtzTable.Designer.cs">
       <DependentUpon>201606170257206_CreateQrtzTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606190823305_AlterVersion.cs" />
+    <Compile Include="Migrations\201606190823305_AlterVersion.Designer.cs">
+      <DependentUpon>201606190823305_AlterVersion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\DefaultTenantRoleAndUserBuilder.cs" />
     <Compile Include="Migrations\SeedData\InitialDataBuilder.cs" />
@@ -149,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606170257206_CreateQrtzTable.resx">
       <DependentUpon>201606170257206_CreateQrtzTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606190823305_AlterVersion.resx">
+      <DependentUpon>201606190823305_AlterVersion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

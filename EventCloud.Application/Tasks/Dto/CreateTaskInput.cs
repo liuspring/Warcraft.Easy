@@ -39,5 +39,11 @@ namespace EventCloud.Tasks.Dto
         [StringLength(2000)]
         public string Remark { get; set; }
 
+        [Required]
+        public string FileZipPath { get; set; }
+
+        [Required]
+        public string FileZipName { get; set; }
+
     }
 }

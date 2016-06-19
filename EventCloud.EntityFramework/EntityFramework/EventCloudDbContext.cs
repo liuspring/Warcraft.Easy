@@ -15,6 +15,8 @@ namespace EventCloud.EntityFramework
 
         public virtual IDbSet<EventRegistration> EventRegistrations { get; set; }
 
+
+        //后期添加
         public virtual IDbSet<Categorys.Category> Categories { get; set; }
 
         public virtual IDbSet<Nodes.Node> Nodes { get; set; }

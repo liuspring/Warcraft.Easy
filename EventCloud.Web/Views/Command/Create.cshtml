@@ -14,10 +14,36 @@
     <div class="panel-body">
         <form id="categoryForm" action="@Url.Action("AjaxCreate")" class="form-horizontal">
             <div class="form-group">
-                <label for="Name" class="col-md-2 control-label">分类名称</label>
+                <label for="CmdName" class="col-md-2 control-label">命令名称</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" name="CategoryName" value=""
-                           placeholder="请输入分类名称" required maxlength="@EventCloud.Categorys.Dto.CreateCateoryInput.MaxCategoryNameLength">
+                    <input type="text" class="form-control" name="CmdName" value=""
+                           placeholder="请输入命令名称" required maxlength="20">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="NodeId" class="col-md-2 control-label">任务</label>
+                <div class="col-md-6">
+                    @Html.DropDownList("NodeId", ViewData["Nodes"] as SelectList
+                        //, "--请选择--"
+                        , new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="CategoryId" class="col-md-2 control-label">分类</label>
+                <div class="col-md-6">
+                    @Html.DropDownList("CategoryId", ViewData["Tasks"] as SelectList
+                        //, "--请选择--"
+                        , new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Cmd" class="col-md-2 control-label">命令json</label>
+                <div class="col-md-6">
+                    <textarea class="form-control" name="Cmd" maxlength="1000" required
+                              rows="3" placeholder="请输入命令json"></textarea>
+                </div>
+                <div class="col-md-6  col-md-offset-2">
+                    <span class="help-block">示范:{"key1":"value1","key2":"value2"}</span>
                 </div>
             </div>
             <div class="form-group">

@@ -24,5 +24,10 @@ namespace EventCloud.Commands.Dto
 
         public int TaskId { get; set; }
 
+        public CreateCommandInput()
+        {
+            CmdState = 0;
+        }
+
     }
 }

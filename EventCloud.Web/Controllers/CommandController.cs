@@ -3,18 +3,47 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using EventCloud.Commands;
+using EventCloud.Commands.Dto;
+using EventCloud.Nodes;
+using EventCloud.Tasks;
 
 namespace EventCloud.Web.Controllers
 {
-    public class CommandController : Controller
+    public class CommandController : EventCloudControllerBase
     {
+        private readonly ICommandAppService _commandAppService;
+        private readonly ITaskAppService _taskAppService;
+        private readonly INodeAppService _nodeAppService;
+
+        public CommandController(ICommandAppService commandAppService, ITaskAppService taskAppService, NodeAppService nodeAppService)
+        {
+            _commandAppService = commandAppService;
+            _taskAppService = taskAppService;
+            _nodeAppService = nodeAppService;
+        }
         //
         // GET: /Command/
         public ActionResult Index()
         {
             return View();
         }
-
+        /// <summary>
+        /// 获得分类列表
+        /// </summary>
+        /// <returns></returns>
+        public JsonResult AjaxCommandList()
+        {
+            var input = new CommandListInput(Request);
+            var count = _commandAppService.GetListTotal(input);
+            var result = count == 0 ? new List<CommandListOutput>() : _commandAppService.GetList(input);
+            var response = new DataTablesResponse
+            {
+                recordsTotal = count,
+                data = result
+            };
+            return Json(response, JsonRequestBehavior.AllowGet);
+        }
         //
         // GET: /Command/Details/5
         public ActionResult Details(int id)
@@ -26,24 +55,30 @@ namespace EventCloud.Web.Controllers
         // GET: /Command/Create
         public ActionResult Create()
         {
+            var nodes = _nodeAppService.GetAllList();
+            ViewData["Nodes"] = new SelectList(nodes, "Id", "NodeName");
+            var tasks = _taskAppService.GetAllList();
+            ViewData["Tasks"] = new SelectList(tasks, "Id", "TaskName");
             return View();
         }
 
         //
         // POST: /Command/Create
         [HttpPost]
-        public ActionResult AjaxCreate(FormCollection collection)
+        public ActionResult AjaxCreate(CreateCommandInput input)
         {
+            var res = new JsonResult();
             try
             {
                 // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                _commandAppService.Create(input);
+                res.Data = new { ret = true };
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                res.Data = new { ret = false, msg = "保存失败：" + ex.Message };
             }
+            return res;
         }
 
         //

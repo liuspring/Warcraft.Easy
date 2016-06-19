@@ -3,18 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using EventCloud.Categorys;
+using EventCloud.Nodes;
 using EventCloud.Tasks;
 using EventCloud.Tasks.Dto;
 
 namespace EventCloud.Web.Controllers
 {
-    public class TaskController : Controller
+    public class TaskController : EventCloudControllerBase
     {
         private readonly ITaskAppService _taskAppService;
+        private readonly ICategoyAppService _categoyAppService;
+        private readonly INodeAppService _nodeAppService;
 
-        public TaskController(ITaskAppService taskAppService)
+        public TaskController(ITaskAppService taskAppService, ICategoyAppService categoyAppService, INodeAppService nodeAppService)
         {
             _taskAppService = taskAppService;
+            _categoyAppService = categoyAppService;
+            _nodeAppService = nodeAppService;
         }
 
         //
@@ -52,6 +58,10 @@ namespace EventCloud.Web.Controllers
         // GET: /Task/Create
         public ActionResult Create()
         {
+            var categorys = _categoyAppService.GetAllList();
+            ViewData["Categories"] = new SelectList(categorys, "Id", "CategoryName");
+            var nodes = _nodeAppService.GetAllList();
+            ViewData["Nodes"] = new SelectList(nodes, "Id", "NodeName");
             return View();
         }
 

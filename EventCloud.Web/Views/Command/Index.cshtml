@@ -1,11 +1,11 @@
 ﻿@using System.Web.Optimization
 @{
-    ViewBag.Title = "分类列表";
+    ViewBag.Title = "命令列表";
     ViewBag.TitleSmall = "";
 
     ViewBag.Breadcrumb = new Breadcrumb(new Crumb[] {
         new Crumb("任务管理", "", "fa-dashboard"),
-        new Crumb("分类列表", "", "")
+        new Crumb("命令列表", "", "")
     });
 }
 @Styles.Render("~/dataTables/css")
@@ -13,7 +13,7 @@
     <div class="panel-body">
         <div class="col-md-6">
             <div class="input-group">
-                <input class="form-control" name="name" placeholder="请输入分类名称" value="" maxlength="50" />
+                <input class="form-control" name="name" placeholder="请输入命令名称" value="" maxlength="50" />
                 <span class="input-group-btn">
                     <button class="btn btn-success" type="button" id="btnSearch">
                         搜索
@@ -34,12 +34,12 @@
 </div>
 <div class="tab-content panel panel-default">
     <div class="panel-body active table-responsive">
-        <table id="tb_category" class="table table-bordered table-hover dataTable">
+        <table id="tb_command" class="table table-bordered table-hover dataTable">
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>分类名称</th>
-                    <th>创建时间</th>
+                    <th>命令名称</th>
+                    <th>状态</th>
                     <th class="hidden">操作</th>
                 </tr>
             </thead>
@@ -52,9 +52,9 @@
     $(function () {
         var grid = new initDataTables();
         grid.init({
-            src: $("#tb_category"),
+            src: $("#tb_command"),
             dataTable: {
-                "sAjaxSource": "@Url.Action("AjaxCategoryList","Category")", // get地址
+                "sAjaxSource": "@Url.Action("AjaxCommandList","Command")", // get地址
                 //"pageLength": 2,
                 //向服务器传额外的参数
                 "fnServerParams": function (aoData) {
@@ -65,10 +65,10 @@
                 //配置列要显示的数据
                 columns: [
                     //对应上面thead里面的序列 ;字段名字和返回的json序列的key对应
-                    { "data": "Id" },
-                    { "data": "CategoryName" },
-                    { "data": "SCreationTime" },
-                    { "data": "Id" }
+                    { "data": "id" },
+                    { "data": "cmdName" },
+                    { "data": "cmdState" },
+                    { "data": "id" }
                 ],
                 //按钮列
                 "columnDefs": [

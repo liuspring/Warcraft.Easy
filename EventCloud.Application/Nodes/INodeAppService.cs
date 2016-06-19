@@ -11,5 +11,7 @@ namespace EventCloud.Nodes
 
         int GetListTotal(NodeListInput input);
 
+        List<Node> GetAllList();
+
     }
 }

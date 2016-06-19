@@ -107,7 +107,7 @@
     <Compile Include="Categorys\CategoyAppService.cs" />
     <Compile Include="Categorys\Dto\CategoryListInput.cs" />
     <Compile Include="Categorys\Dto\CategoryListOutput.cs" />
-    <Compile Include="Categorys\Dto\CreateCateoryInput.cs" />
+    <Compile Include="Categorys\Dto\CreateCategoryInput.cs" />
     <Compile Include="Categorys\ICategoyAppService.cs" />
     <Compile Include="Commands\CommandAppService.cs" />
     <Compile Include="Commands\Dto\CommandListInput.cs" />
@@ -137,6 +137,7 @@
     <Compile Include="Statistics\IStatisticsAppService.cs" />
     <Compile Include="Statistics\StatisticsAppService.cs" />
     <Compile Include="Tasks\Dto\CreateTaskInput.cs" />
+    <Compile Include="Tasks\Dto\TaskDetailOutput.cs" />
     <Compile Include="Tasks\Dto\TaskListInput.cs" />
     <Compile Include="Tasks\Dto\TaskListOutput.cs" />
     <Compile Include="Tasks\ITaskAppService.cs" />

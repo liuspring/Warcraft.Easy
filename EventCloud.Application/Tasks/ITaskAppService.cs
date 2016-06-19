@@ -10,5 +10,7 @@ namespace EventCloud.Tasks
         List<TaskListOutput> GetList(TaskListInput input);
 
         int GetListTotal(TaskListInput input);
+
+        List<Task> GetAllList();
     }
 }

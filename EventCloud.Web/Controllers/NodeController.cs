@@ -6,7 +6,7 @@ using EventCloud.Nodes.Dto;
 
 namespace EventCloud.Web.Controllers
 {
-    public class NodeController : Controller
+    public class NodeController : EventCloudControllerBase
     {
         private readonly INodeAppService _nodeAppService;
         public NodeController(INodeAppService nodeAppService)

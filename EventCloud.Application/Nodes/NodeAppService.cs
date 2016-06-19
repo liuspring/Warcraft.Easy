@@ -37,5 +37,10 @@ namespace EventCloud.Nodes
         {
             return _nodeRepository.GetAllList().Count;
         }
+
+        public List<Node> GetAllList()
+        {
+            return _nodeRepository.GetAllList();
+        }
     }
 }

@@ -12,8 +12,11 @@ var initDataTables = function () {
             "url": sSource,
             "dataType": "json",
             "data": aoData,
-            "success": function (resp) {
-                fnCallback(resp); //服务器端返回的对象的returnObject部分是要求的格式
+            "success": function (resp) {//服务器端返回的对象的returnObject部分是要求的格式
+                if (resp.success)
+                    fnCallback(resp.result);
+                else
+                    fnCallback(resp);
             }
         });
         /* Post 方法调用
@@ -54,7 +57,7 @@ var initDataTables = function () {
                         [5, 15, 20, "All"] // change per page values here
                     ],
                     // set the initial value
-                    "pageLength": 20,
+                    "pageLength": 10,
                     ////向服务器传额外的参数
                     //"fnServerParams": function(aoData) {
                     //    aoData.push(

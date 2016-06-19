@@ -3,6 +3,7 @@ using System.Linq;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
 using EventCloud.Tasks.Dto;
+using EventCloud.Versions;
 
 namespace EventCloud.Tasks
 {
@@ -10,10 +11,13 @@ namespace EventCloud.Tasks
     {
 
         private readonly IRepository<Task, int> _taskRepository;
+        private readonly IRepository<Versions.VersionInfo, int> _versionInfoRepository;
 
-        public TaskAppService(IRepository<Task, int> taskRepository)
+
+        public TaskAppService(IRepository<Task, int> taskRepository, IRepository<Versions.VersionInfo, int> versionInfoRepository)
         {
             _taskRepository = taskRepository;
+            _versionInfoRepository = versionInfoRepository;
         }
 
 
@@ -22,7 +26,10 @@ namespace EventCloud.Tasks
             var task = Task.Create(input.TaskName, input.CategoryId, input.NodeId, input.State, input.Version,
                 input.AppConfigJson,
                 input.Cron, input.MainClassDllFileName, input.MainClassNameSpace, input.Remark);
-            _taskRepository.Insert(task);
+            //var a= _taskRepository.Insert(task);
+            var versionInfo = VersionInfo.Create(task.Id, input.FileZipName, input.FileZipPath);
+            versionInfo.TaskId = 2;
+            _versionInfoRepository.Insert(versionInfo);
             return task.Id;
         }
 
@@ -36,6 +43,11 @@ namespace EventCloud.Tasks
         public int GetListTotal(TaskListInput input)
         {
             return _taskRepository.GetAllList().Count;
+        }
+
+        public List<Task> GetAllList()
+        {
+            return _taskRepository.GetAllList();
         }
     }
 }

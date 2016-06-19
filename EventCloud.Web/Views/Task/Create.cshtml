@@ -8,6 +8,7 @@
         new Crumb("添加任务","" , "")
     });
 }
+<link href="~/Content/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet" />
 <link href="~/Content/bootstrapValidator.min.css" rel="stylesheet" />
 @using System.Web.Optimization
 <div class="panel panel-default">
@@ -17,60 +18,96 @@
                 <label for="TaskName" class="col-md-2 control-label">任务名称</label>
                 <div class="col-md-6">
                     <input type="text" class="form-control" name="TaskName" value=""
-                           placeholder="请输入任务名称" required maxlength="@EventCloud.Categorys.Dto.CreateCateoryInput.MaxCategoryNameLength">
+                           placeholder="请输入任务名称" required maxlength="50">
                 </div>
             </div>
-            
             <div class="form-group">
                 <label for="CategoryId" class="col-md-2 control-label">分类</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" name="CategoryId" value=""
-                           placeholder="请输入任务名称" required maxlength="@EventCloud.Categorys.Dto.CreateCateoryInput.MaxCategoryNameLength">
+                    @Html.DropDownList("CategoryId", ViewData["Categories"] as SelectList
+                            //, "--请选择--"
+                                                    , new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
                 <label for="NodeId" class="col-md-2 control-label">节点</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" name="NodeId" value=""
-                           placeholder="请输入任务名称" required maxlength="@EventCloud.Categorys.Dto.CreateCateoryInput.MaxCategoryNameLength">
+                    @Html.DropDownList("NodeId", ViewData["Nodes"] as SelectList
+                            //, "--请选择--"
+                                                    , new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
                 <label for="AppConfigJson" class="col-md-2 control-label">配置json</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" name="AppConfigJson" value=""
-                           placeholder="请输入任务名称" required maxlength="@EventCloud.Categorys.Dto.CreateCateoryInput.MaxCategoryNameLength">
+                    <textarea class="form-control" name="AppConfigJson" maxlength="1000" required
+                              rows="3" placeholder="请输入配置json"></textarea>
+                </div>
+                <div class="col-md-6  col-md-offset-2">
+                    <span class="help-block">示范:{"key1":"value1","key2":"value2"}</span>
                 </div>
             </div>
-            
+            <div class="form-group">
+                <label for="AppConfigJson" class="col-md-2 control-label">数据库临时数据json</label>
+                <div class="col-md-6">
+                    <textarea class="form-control" name="TempDataJson" maxlength="1000" required
+                              rows="3" placeholder="请输入数据库临时数据json"></textarea>
+                </div>
+                <div class="col-md-6  col-md-offset-2">
+                    <span class="help-block">示范:{"key1":"value1","key2":"value2"}</span>
+                </div>
+            </div>
             <div class="form-group">
                 <label for="Cron" class="col-md-2 control-label">Cron表达式</label>
                 <div class="col-md-6">
                     <input type="text" class="form-control" name="Cron" value=""
-                           placeholder="请输入任务名称" required maxlength="@EventCloud.Categorys.Dto.CreateCateoryInput.MaxCategoryNameLength">
+                           placeholder="请输入Cron表达式" required maxlength="50">
+                </div>
+                <div class="col-md-6  col-md-offset-2">
+                    <span class="help-block">示范：0/5 * * * * ?</span>
                 </div>
             </div>
-            
             <div class="form-group">
                 <label for="MainClassDllFileName" class="col-md-2 control-label">任务入口类的命名空间</label>
                 <div class="col-md-6">
                     <input type="text" class="form-control" name="MainClassDllFileName" value=""
-                           placeholder="请输入任务名称" required maxlength="@EventCloud.Categorys.Dto.CreateCateoryInput.MaxCategoryNameLength">
+                           placeholder="请输入任务入口类的命名空间" required maxlength="100">
+                </div>
+                <div class="col-md-6  col-md-offset-2">
+                    <span class="help-block">示范：Dyd.BaseService.TaskManager.Demo.DemoTask</span>
                 </div>
             </div>
-            
             <div class="form-group">
                 <label for="MainClassNameSpace" class="col-md-2 control-label">任务入口dll文件名</label>
                 <div class="col-md-6">
                     <input type="text" class="form-control" name="MainClassNameSpace" value=""
-                           placeholder="请输入任务名称" required maxlength="@EventCloud.Categorys.Dto.CreateCateoryInput.MaxCategoryNameLength">
+                           placeholder="请输入任务入口dll文件名" required maxlength="100">
+                </div>
+                <div class="col-md-6  col-md-offset-2">
+                    <span class="help-block">示范：Dyd.BaseService.TaskManager.Demo.exe</span>
                 </div>
             </div>
             <div class="form-group">
-                <label for="Remark" class="col-md-2 control-label">备注</label>
+                <div class="col-md-10  col-md-offset-2" id="divFileZipName">
+                    <span><b></b></span>
+                </div>
+                <label for="MainClassNameSpace" class="col-md-2 control-label">上传打包文件</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" name="Remark" value=""
-                           placeholder="请输入任务名称" required maxlength="@EventCloud.Categorys.Dto.CreateCateoryInput.MaxCategoryNameLength">
+                    <input id="FileUpload" name="FileUpload" type="file" data-show-upload="true" data-show-preview="false">
+                    <input id="FileZipPath" name="FileZipPath" type="hidden" />
+                    <input id="FileZipName" name="FileZipName" type="hidden" />
+                </div>
+
+                <div class="col-md-6  col-md-offset-2">
+                    <span class="help-block">示范：以.zip为后缀的压缩包</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="AppConfigJson" class="col-md-2 control-label">备注</label>
+                <div class="col-md-6">
+                    <textarea class="form-control" name="Remark" maxlength="2000" required
+                              rows="3" placeholder="请输入备注"></textarea>
                 </div>
             </div>
             <div class="form-group">
@@ -85,9 +122,31 @@
     </div>
 </div>
 @Scripts.Render("~/plugins/jshow")
+<script src="~/Scripts/fileinput.min.js"></script>
+<script src="~/Scripts/fileinput_locale_zh.js"></script>
 <script src="~/Scripts/bootstrapValidator.min.js"></script>
+<script src="~/Scripts/Common.js"></script>
 <script type="text/javascript">
     $(function () {
+        //初始化fileinput控件（第一次初始化）
+        initFileInput("FileUpload", "/Upload/UploadFile", ["zip"]);
+
+        //上传后触发的事件
+        $("#FileUpload").on("fileuploaded", function (event, data, previewId, index) {
+            if (data.response.result.ret) {
+                $("#divFileZipName span b").html(data.response.result.filename);
+                $("#FileZipName").val(data.response.result.filesavename);
+                $("#FileZipPath").val(data.response.result.filesavename);
+            } else {
+                gDialog.fAlert("上传文件失败！");
+            }
+        }).on("filecleared", function (event, data, previewId, index) {
+            $("#divFileZipName span b").html("");
+            $("#FileZipName").val("");
+            $("#FileZipPath").val("");
+
+        });
+
         $("#categoryForm").bootstrapValidator({
             message: '该值不可以为空',
             feedbackIcons: {
@@ -95,7 +154,12 @@
                 invalid: 'glyphicon glyphicon-remove',
                 validating: 'glyphicon glyphicon-refresh'
             }
-        }).on('success.form.bv', function (e) {//点击提交之后
+        }).on('success.form.bv', function (e) { //点击提交之后
+            if ($("#FileZipName").val() == "") {
+                gDialog.fAlert("上传打包文件不可为空！");
+                $("#btnSave").removeAttr("disabled");
+                return false;
+            }
             e.preventDefault();
             var $form = $(e.target);
             var bv = $form.data('bootstrapValidator');
@@ -105,6 +169,7 @@
                     window.location.href = "@Url.Action("Index")";
                 } else {
                     message_box.show('<h4>保存失败：</h4>' + result.msg + '！', 'danger');
+                    $("#btnSave").removeAttr("disabled");
                 }
             });
         });

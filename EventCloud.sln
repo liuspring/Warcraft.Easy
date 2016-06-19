@@ -135,6 +135,27 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "login7", "http://localhost:
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuartzDemo", "Tests\QuartzDemo\QuartzDemo\QuartzDemo.csproj", "{2C8EF700-DB89-41D7-BA97-D4646A9DC227}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "bootstrap-fileinput-master", "http://localhost:16662", "{9880E017-C82F-40D5-AF33-F48139D3CF81}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_16662"
+		Debug.AspNetCompiler.PhysicalPath = "Resource\bootstrap-fileinput-master\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_16662\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_16662"
+		Release.AspNetCompiler.PhysicalPath = "Resource\bootstrap-fileinput-master\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_16662\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "Resource\bootstrap-fileinput-master\"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Backup_Release|Any CPU = Backup_Release|Any CPU
@@ -328,6 +349,20 @@ Global
 		{2C8EF700-DB89-41D7-BA97-D4646A9DC227}.Special_Release|Any CPU.Build.0 = Release|Any CPU
 		{2C8EF700-DB89-41D7-BA97-D4646A9DC227}.Urgent_Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C8EF700-DB89-41D7-BA97-D4646A9DC227}.Urgent_Release|Any CPU.Build.0 = Release|Any CPU
+		{9880E017-C82F-40D5-AF33-F48139D3CF81}.Backup_Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{9880E017-C82F-40D5-AF33-F48139D3CF81}.Backup_Release|Any CPU.Build.0 = Debug|Any CPU
+		{9880E017-C82F-40D5-AF33-F48139D3CF81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9880E017-C82F-40D5-AF33-F48139D3CF81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9880E017-C82F-40D5-AF33-F48139D3CF81}.Normal_Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{9880E017-C82F-40D5-AF33-F48139D3CF81}.Normal_Release|Any CPU.Build.0 = Debug|Any CPU
+		{9880E017-C82F-40D5-AF33-F48139D3CF81}.Performance_Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{9880E017-C82F-40D5-AF33-F48139D3CF81}.Performance_Release|Any CPU.Build.0 = Debug|Any CPU
+		{9880E017-C82F-40D5-AF33-F48139D3CF81}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{9880E017-C82F-40D5-AF33-F48139D3CF81}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{9880E017-C82F-40D5-AF33-F48139D3CF81}.Special_Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{9880E017-C82F-40D5-AF33-F48139D3CF81}.Special_Release|Any CPU.Build.0 = Debug|Any CPU
+		{9880E017-C82F-40D5-AF33-F48139D3CF81}.Urgent_Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{9880E017-C82F-40D5-AF33-F48139D3CF81}.Urgent_Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -340,5 +375,6 @@ Global
 		{6EB57E69-85A2-4C9D-98B6-C0A822D661F9} = {905B130C-39B6-49AE-83AD-061398B3887E}
 		{13EEA79A-92E0-427D-8C0C-60B236C4FF64} = {905B130C-39B6-49AE-83AD-061398B3887E}
 		{AAC4F0D9-5101-4B21-81AA-A864A10CD3E3} = {905B130C-39B6-49AE-83AD-061398B3887E}
+		{9880E017-C82F-40D5-AF33-F48139D3CF81} = {905B130C-39B6-49AE-83AD-061398B3887E}
 	EndGlobalSection
 EndGlobal
