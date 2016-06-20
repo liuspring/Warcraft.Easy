@@ -1,0 +1,18 @@
+﻿@{
+    // Layout set automatially in _ViewStart.cshtml
+
+    // EXAMPLE:
+    // Using the ViewBag on a page to set the title and sub-title
+    // This will cause the _AdminLteLayout to include this value in the page title
+    // And also set the top titles in the main content area of the page
+    ViewBag.Title = "撸拉拉";
+    ViewBag.TitleSmall = "我的大刀已经饥渴难耐了……";
+
+    // EXAMPLE:
+    // Using the Breadcrumb class to create a dynamically generated breadcrumb on the page with
+    // Titles, plus optional icon and URLs
+    ViewBag.Breadcrumb = new Breadcrumb(new Crumb[] {
+        new Crumb("A", "", "fa-dashboard"),
+        new Crumb("B", "", "")
+    });
+}

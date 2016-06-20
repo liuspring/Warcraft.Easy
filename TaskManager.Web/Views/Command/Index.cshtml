@@ -1,0 +1,105 @@
+﻿@using System.Web.Optimization
+@{
+    ViewBag.Title = "命令列表";
+    ViewBag.TitleSmall = "";
+
+    ViewBag.Breadcrumb = new Breadcrumb(new Crumb[] {
+        new Crumb("任务管理", "", "fa-dashboard"),
+        new Crumb("命令列表", "", "")
+    });
+}
+@Styles.Render("~/dataTables/css")
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="col-md-6">
+            <div class="input-group">
+                <input class="form-control" name="name" placeholder="请输入命令名称" value="" maxlength="50" />
+                <span class="input-group-btn">
+                    <button class="btn btn-success" type="button" id="btnSearch">
+                        搜索
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="col-md-5">
+            <div class="input-group">
+                <a href="@Url.Action("Create")" class="btn btn-primary">新增</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="tab-content panel panel-default">
+    <div class="panel-body active table-responsive">
+        <table id="tb_command" class="table table-bordered table-hover dataTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>命令名称</th>
+                    <th>状态</th>
+                    <th class="hidden">操作</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+@Scripts.Render("~/dataTables/js")
+<script type="text/javascript">
+    $(function () {
+        var grid = new initDataTables();
+        grid.init({
+            src: $("#tb_command"),
+            dataTable: {
+                "sAjaxSource": "@Url.Action("AjaxCommandList","Command")", // get地址
+                //"pageLength": 2,
+                //向服务器传额外的参数
+                "fnServerParams": function (aoData) {
+                    aoData.push(
+                        //{ "name": "tab", "value": $("#navTab").val() }
+                    ); //查询内容
+                },
+                //配置列要显示的数据
+                columns: [
+                    //对应上面thead里面的序列 ;字段名字和返回的json序列的key对应
+                    { "data": "id" },
+                    { "data": "cmdName" },
+                    { "data": "cmdState" },
+                    { "data": "id" }
+                ],
+                //按钮列
+                "columnDefs": [
+                    {
+                        "render": function (data, type, row, me) {
+                            return me.settings._iDisplayStart + me.row + 1;
+                        },
+                        "targets": 0
+                    },
+                    {
+                        "render": function (data, type, row, me) {
+                            var opt = "";
+                            opt += '<a href="/User/CreateUser/' + data + '" class="btn default btn-xs green" title="编辑"><i class="fa fa-edit"></i>编辑</a>';
+                            //if (row.isActive) {
+                            //    opt += '<a href="/Task/TaskView/' + data + '" class="btn default btn-xs green" title="设为无效"><i class="fa fa-cog"></i>设为无效</a>';
+                            //} else {
+                            //    opt += '<a href="/Task/TaskView/' + data + '" class="btn default btn-xs green" title="设为有效"><i class="fa fa-cog"></i>设为有效</a>';
+                            //}
+                            return opt;
+                        },
+                        'orderable': false,
+                        'class': "hidden",
+                        "targets": 3
+                    }
+                ]
+            }
+        });
+        //搜索
+        $("#btnsearch").click(function () {
+            grid.submitFilter();
+        });
+
+    })
+</script>

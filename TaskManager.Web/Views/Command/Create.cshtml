@@ -1,0 +1,85 @@
+﻿@{
+    ViewBag.Title = "添加分类";
+    ViewBag.TitleSmall = "";
+
+    ViewBag.Breadcrumb = new Breadcrumb(new Crumb[] {
+        new Crumb("任务管理", "", "fa-dashboard"),
+        new Crumb("分类列表", Url.Action("Index"), ""),
+        new Crumb("添加分类","" , "")
+    });
+}
+<link href="~/Content/bootstrapValidator.min.css" rel="stylesheet" />
+@using System.Web.Optimization
+<div class="panel panel-default">
+    <div class="panel-body">
+        <form id="categoryForm" action="@Url.Action("AjaxCreate")" class="form-horizontal">
+            <div class="form-group">
+                <label for="CmdName" class="col-md-2 control-label">命令名称</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="CmdName" value=""
+                           placeholder="请输入命令名称" required maxlength="20">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="NodeId" class="col-md-2 control-label">任务</label>
+                <div class="col-md-6">
+                    @Html.DropDownList("NodeId", ViewData["Nodes"] as SelectList
+                        //, "--请选择--"
+                        , new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="CategoryId" class="col-md-2 control-label">分类</label>
+                <div class="col-md-6">
+                    @Html.DropDownList("CategoryId", ViewData["Tasks"] as SelectList
+                        //, "--请选择--"
+                        , new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Cmd" class="col-md-2 control-label">命令json</label>
+                <div class="col-md-6">
+                    <textarea class="form-control" name="Cmd" maxlength="1000" required
+                              rows="3" placeholder="请输入命令json"></textarea>
+                </div>
+                <div class="col-md-6  col-md-offset-2">
+                    <span class="help-block">示范:{"key1":"value1","key2":"value2"}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-6 col-md-offset-2">
+                    <a href="@Url.Action("Index")" class="btn btn-primary">返回列表</a>
+                    <button type="submit" id="btnSave" class="btn btn-primary">
+                        <i class="fa fa-sign-in"></i> 保存
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+@Scripts.Render("~/plugins/jshow")
+<script src="~/Scripts/bootstrapValidator.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#categoryForm").bootstrapValidator({
+            message: '该值不可以为空',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            }
+        }).on('success.form.bv', function (e) {//点击提交之后
+            e.preventDefault();
+            var $form = $(e.target);
+            var bv = $form.data('bootstrapValidator');
+            $.post($form.attr('action'), $form.serialize(), function (result) {
+                if (result.ret) {
+                    message_box.show('<h4>保存成功！</h4>', 'success');
+                    window.location.href = "@Url.Action("Index")";
+                } else {
+                    message_box.show('<h4>保存失败：</h4>' + result.msg + '！', 'danger');
+                }
+            });
+        });
+    });
+</script>
