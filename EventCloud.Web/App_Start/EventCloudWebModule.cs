@@ -8,13 +8,13 @@ using Abp.Localization;
 using Abp.Localization.Sources;
 using Abp.Localization.Sources.Xml;
 using Abp.Modules;
-using EventCloud.Api;
-using EventCloud.Web.Navigation;
+using TaskManager.Api;
+using TaskManager.Web.Navigation;
 
-namespace EventCloud.Web
+namespace TaskManager.Web
 {
-    [DependsOn(typeof(EventCloudDataModule), typeof(EventCloudApplicationModule), typeof(EventCloudWebApiModule))]
-    public class EventCloudWebModule : AbpModule
+    [DependsOn(typeof(TaskManagerDataModule), typeof(TaskManagerApplicationModule), typeof(TaskManagerWebApiModule))]
+    public class TaskManagerWebModule : AbpModule
     {
         public override void PreInitialize()
         {
@@ -24,7 +24,7 @@ namespace EventCloud.Web
             Configuration.Localization.Languages.Add(new LanguageInfo("zh-CN", "简体中文", "famfamfam-flag-cn"));
 
             //Configure navigation/menu
-            Configuration.Navigation.Providers.Add<EventCloudNavigationProvider>();
+            Configuration.Navigation.Providers.Add<TaskManagerNavigationProvider>();
         }
 
         public override void Initialize()

@@ -9,26 +9,26 @@ using Abp.Events.Bus;
 using Abp.Modules;
 using Abp.Runtime.Session;
 using Abp.TestBase;
-using EventCloud.EntityFramework;
-using EventCloud.Migrations.SeedData;
-using EventCloud.MultiTenancy;
-using EventCloud.Users;
+using TaskManager.EntityFramework;
+using TaskManager.Migrations.SeedData;
+using TaskManager.MultiTenancy;
+using TaskManager.Users;
 using Castle.MicroKernel.Registration;
 using EntityFramework.DynamicFilters;
-using EventCloud.Domain.Events;
-using EventCloud.Tests.Data;
+using TaskManager.Domain.Events;
+using TaskManager.Tests.Data;
 
-namespace EventCloud.Tests.Sessions
+namespace TaskManager.Tests.Sessions
 {
-    public abstract class EventCloudTestBase : AbpIntegratedTestBase
+    public abstract class TaskManagerTestBase : AbpIntegratedTestBase
     {
-        static EventCloudTestBase()
+        static TaskManagerTestBase()
         {
             //Disable global event bus for unit tests
             DomainEvents.EventBus = NullEventBus.Instance;
         }
 
-        protected EventCloudTestBase()
+        protected TaskManagerTestBase()
         {
             //Seed initial data
             UsingDbContext(context => new InitialDataBuilder(context).Build());
@@ -54,13 +54,13 @@ namespace EventCloud.Tests.Sessions
             base.AddModules(modules);
 
             //Adding testing modules. Depended modules of these modules are automatically added.
-            modules.Add<EventCloudApplicationModule>();
-            modules.Add<EventCloudDataModule>();
+            modules.Add<TaskManagerApplicationModule>();
+            modules.Add<TaskManagerDataModule>();
         }
 
-        public void UsingDbContext(Action<EventCloudDbContext> action)
+        public void UsingDbContext(Action<TaskManagerDbContext> action)
         {
-            using (var context = LocalIocManager.Resolve<EventCloudDbContext>())
+            using (var context = LocalIocManager.Resolve<TaskManagerDbContext>())
             {
                 context.DisableAllFilters();
                 action(context);
@@ -68,9 +68,9 @@ namespace EventCloud.Tests.Sessions
             }
         }
         
-        public async Task UsingDbContext(Func<EventCloudDbContext, Task> action)
+        public async Task UsingDbContext(Func<TaskManagerDbContext, Task> action)
         {
-            using (var context = LocalIocManager.Resolve<EventCloudDbContext>())
+            using (var context = LocalIocManager.Resolve<TaskManagerDbContext>())
             {
                 context.DisableAllFilters();
                 await action(context);
@@ -78,11 +78,11 @@ namespace EventCloud.Tests.Sessions
             }
         }
 
-        public T UsingDbContext<T>(Func<EventCloudDbContext, T> func)
+        public T UsingDbContext<T>(Func<TaskManagerDbContext, T> func)
         {
             T result;
 
-            using (var context = LocalIocManager.Resolve<EventCloudDbContext>())
+            using (var context = LocalIocManager.Resolve<TaskManagerDbContext>())
             {
                 context.DisableAllFilters();
                 result = func(context);

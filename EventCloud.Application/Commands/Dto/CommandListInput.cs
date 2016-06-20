@@ -1,6 +1,6 @@
 ﻿using System.Web;
 
-namespace EventCloud.Commands.Dto
+namespace TaskManager.Commands.Dto
 {
     public class CommandListInput:DataTablesRequest
     {

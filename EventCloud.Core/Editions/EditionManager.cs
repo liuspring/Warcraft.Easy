@@ -2,7 +2,7 @@
 using Abp.Application.Features;
 using Abp.Domain.Repositories;
 
-namespace EventCloud.Editions
+namespace TaskManager.Editions
 {
     public class EditionManager : AbpEditionManager
     {

@@ -4,14 +4,14 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using EventCloud.Categorys;
-using EventCloud.Nodes;
-using EventCloud.Tasks;
-using EventCloud.Tasks.Dto;
+using TaskManager.Categorys;
+using TaskManager.Nodes;
+using TaskManager.Tasks;
+using TaskManager.Tasks.Dto;
 
-namespace EventCloud.Web.Controllers
+namespace TaskManager.Web.Controllers
 {
-    public class TaskController : EventCloudControllerBase
+    public class TaskController : TaskManagerControllerBase
     {
         private readonly ITaskAppService _taskAppService;
         private readonly ICategoyAppService _categoyAppService;

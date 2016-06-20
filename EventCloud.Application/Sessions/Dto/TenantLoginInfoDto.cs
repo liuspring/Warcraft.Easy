@@ -1,8 +1,8 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
-using EventCloud.MultiTenancy;
+using TaskManager.MultiTenancy;
 
-namespace EventCloud.Sessions.Dto
+namespace TaskManager.Sessions.Dto
 {
     [AutoMapFrom(typeof(Tenant))]
     public class TenantLoginInfoDto : EntityDto

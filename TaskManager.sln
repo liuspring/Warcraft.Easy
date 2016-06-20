@@ -10,19 +10,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{DFA48E
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventCloud.Core", "EventCloud.Core\EventCloud.Core.csproj", "{17298EA0-AF73-4F30-B6F1-2066100D7D74}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.Core", "EventCloud.Core\TaskManager.Core.csproj", "{17298EA0-AF73-4F30-B6F1-2066100D7D74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventCloud.Application", "EventCloud.Application\EventCloud.Application.csproj", "{EDF5D964-4C0F-4F19-B674-58A38A5E5401}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.Application", "EventCloud.Application\TaskManager.Application.csproj", "{EDF5D964-4C0F-4F19-B674-58A38A5E5401}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventCloud.EntityFramework", "EventCloud.EntityFramework\EventCloud.EntityFramework.csproj", "{3979F157-DEB0-4878-AB1D-4CEF6B5A1300}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.EntityFramework", "EventCloud.EntityFramework\TaskManager.EntityFramework.csproj", "{3979F157-DEB0-4878-AB1D-4CEF6B5A1300}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventCloud.Web", "EventCloud.Web\EventCloud.Web.csproj", "{897F6FD8-6F90-48E4-95A5-B4429B896205}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.Web", "EventCloud.Web\TaskManager.Web.csproj", "{897F6FD8-6F90-48E4-95A5-B4429B896205}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventCloud.WebApi", "EventCloud.WebApi\EventCloud.WebApi.csproj", "{5EB52D3D-09FD-463A-B02A-8D9856BD3724}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.WebApi", "EventCloud.WebApi\TaskManager.WebApi.csproj", "{5EB52D3D-09FD-463A-B02A-8D9856BD3724}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{7E85C7E5-70BD-4C9D-B052-D95955F46609}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventCloud.Tests", "Tests\EventCloud.Tests\EventCloud.Tests.csproj", "{C602C47E-F379-40A3-A146-4F19105B3491}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.Tests", "Tests\EventCloud.Tests\TaskManager.Tests.csproj", "{C602C47E-F379-40A3-A146-4F19105B3491}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resource", "Resource", "{905B130C-39B6-49AE-83AD-061398B3887E}"
 EndProject
@@ -90,8 +90,46 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "bootstrap-daterangepicker",
 		Release.AspNetCompiler.Debug = "False"
 		SlnRelativePath = "Resource\bootstrap-daterangepicker\"
 	EndProjectSection
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_55204"
+		Debug.AspNetCompiler.PhysicalPath = "Resource\bootstrap-daterangepicker\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55204\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_55204"
+		Release.AspNetCompiler.PhysicalPath = "Resource\bootstrap-daterangepicker\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55204\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "Resource\bootstrap-daterangepicker\"
+	EndProjectSection
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "jshow-for-bootstrap3", "http://localhost:55209", "{13EEA79A-92E0-427D-8C0C-60B236C4FF64}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_55209"
+		Debug.AspNetCompiler.PhysicalPath = "Resource\jshow-for-bootstrap3\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55209\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_55209"
+		Release.AspNetCompiler.PhysicalPath = "Resource\jshow-for-bootstrap3\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55209\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "Resource\jshow-for-bootstrap3\"
+	EndProjectSection
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"

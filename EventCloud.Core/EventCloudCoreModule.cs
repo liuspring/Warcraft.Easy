@@ -6,13 +6,13 @@ using Abp.MultiTenancy;
 using Abp.Timing;
 using Abp.Zero;
 using Abp.Zero.Configuration;
-using EventCloud.Authorization.Roles;
-using EventCloud.Configuration;
+using TaskManager.Authorization.Roles;
+using TaskManager.Configuration;
 
-namespace EventCloud
+namespace TaskManager
 {
     [DependsOn(typeof(AbpZeroCoreModule))]
-    public class EventCloudCoreModule : AbpModule
+    public class TaskManagerCoreModule : AbpModule
     {
         public override void PreInitialize()
         {
@@ -20,15 +20,15 @@ namespace EventCloud
 
             Configuration.Localization.Sources.Add(
                 new DictionaryBasedLocalizationSource(
-                    EventCloudConsts.LocalizationSourceName,
+                    TaskManagerConsts.LocalizationSourceName,
                     new XmlEmbeddedFileLocalizationDictionaryProvider(
                         Assembly.GetExecutingAssembly(),
-                        "EventCloud.Localization.Source"
+                        "TaskManager.Localization.Source"
                         )
                     )
                 );
 
-            Configuration.Settings.Providers.Add<EventCloudSettingProvider>();
+            Configuration.Settings.Providers.Add<TaskManagerSettingProvider>();
 
             Configuration.Modules.Zero().RoleManagement.StaticRoles.Add(new StaticRoleDefinition(StaticRoleNames.Tenant.Admin, MultiTenancySides.Host));
             Configuration.Modules.Zero().RoleManagement.StaticRoles.Add(new StaticRoleDefinition(StaticRoleNames.Tenant.Admin, MultiTenancySides.Tenant));

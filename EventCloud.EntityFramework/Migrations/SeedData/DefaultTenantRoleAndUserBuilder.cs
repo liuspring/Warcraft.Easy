@@ -1,17 +1,17 @@
 using System.Linq;
 using Abp.Authorization.Users;
-using EventCloud.Authorization.Roles;
-using EventCloud.EntityFramework;
-using EventCloud.MultiTenancy;
-using EventCloud.Users;
+using TaskManager.Authorization.Roles;
+using TaskManager.EntityFramework;
+using TaskManager.MultiTenancy;
+using TaskManager.Users;
 
-namespace EventCloud.Migrations.SeedData
+namespace TaskManager.Migrations.SeedData
 {
     public class DefaultTenantRoleAndUserBuilder
     {
-        private readonly EventCloudDbContext _context;
+        private readonly TaskManagerDbContext _context;
 
-        public DefaultTenantRoleAndUserBuilder(EventCloudDbContext context)
+        public DefaultTenantRoleAndUserBuilder(TaskManagerDbContext context)
         {
             _context = context;
         }

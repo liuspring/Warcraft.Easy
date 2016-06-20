@@ -1,4 +1,4 @@
-﻿namespace EventCloud
+﻿namespace TaskManager
 {
     public class DataTablesResponse
     {

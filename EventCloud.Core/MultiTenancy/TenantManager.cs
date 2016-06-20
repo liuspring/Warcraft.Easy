@@ -1,10 +1,10 @@
 ﻿using Abp.Domain.Repositories;
 using Abp.MultiTenancy;
-using EventCloud.Authorization.Roles;
-using EventCloud.Editions;
-using EventCloud.Users;
+using TaskManager.Authorization.Roles;
+using TaskManager.Editions;
+using TaskManager.Users;
 
-namespace EventCloud.MultiTenancy
+namespace TaskManager.MultiTenancy
 {
     public class TenantManager : AbpTenantManager<Tenant, Role, User>
     {

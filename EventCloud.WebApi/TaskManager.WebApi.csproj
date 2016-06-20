@@ -7,8 +7,8 @@
     <ProjectGuid>{5EB52D3D-09FD-463A-B02A-8D9856BD3724}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EventCloud</RootNamespace>
-    <AssemblyName>EventCloud.WebApi</AssemblyName>
+    <RootNamespace>TaskManager</RootNamespace>
+    <AssemblyName>TaskManager.WebApi</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -146,13 +146,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EventCloud.Application\EventCloud.Application.csproj">
+    <ProjectReference Include="..\EventCloud.Application\TaskManager.Application.csproj">
       <Project>{edf5d964-4c0f-4f19-b674-58a38a5e5401}</Project>
-      <Name>EventCloud.Application</Name>
+      <Name>TaskManager.Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EventCloud.Core\EventCloud.Core.csproj">
+    <ProjectReference Include="..\EventCloud.Core\TaskManager.Core.csproj">
       <Project>{17298ea0-af73-4f30-b6f1-2066100d7d74}</Project>
-      <Name>EventCloud.Core</Name>
+      <Name>TaskManager.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

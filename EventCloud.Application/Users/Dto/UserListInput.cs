@@ -1,6 +1,6 @@
 ﻿using System.Web;
 
-namespace EventCloud.Users.Dto
+namespace TaskManager.Users.Dto
 {
     public class UserListInput:DataTablesRequest
     {

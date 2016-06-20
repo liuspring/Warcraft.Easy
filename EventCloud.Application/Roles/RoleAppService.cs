@@ -2,13 +2,13 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Abp.Authorization;
-using EventCloud.Authorization.Roles;
-using EventCloud.Roles.Dto;
+using TaskManager.Authorization.Roles;
+using TaskManager.Roles.Dto;
 
-namespace EventCloud.Roles
+namespace TaskManager.Roles
 {
     /* THIS IS JUST A SAMPLE. */
-    public class RoleAppService : EventCloudAppServiceBase,IRoleAppService
+    public class RoleAppService : TaskManagerAppServiceBase,IRoleAppService
     {
         private readonly RoleManager _roleManager;
         private readonly IPermissionManager _permissionManager;

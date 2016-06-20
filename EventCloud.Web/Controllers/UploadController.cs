@@ -6,9 +6,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace EventCloud.Web.Controllers
+namespace TaskManager.Web.Controllers
 {
-    public class UploadController : EventCloudControllerBase
+    public class UploadController : TaskManagerControllerBase
     {
 
         private readonly string uploadFilePath = ConfigurationManager.AppSettings["UploadFilePath"];

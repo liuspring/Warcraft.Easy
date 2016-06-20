@@ -1,22 +1,22 @@
 using EntityFramework.DynamicFilters;
-using EventCloud.Migrations.SeedData;
+using TaskManager.Migrations.SeedData;
 
-namespace EventCloud.Migrations
+namespace TaskManager.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<EventCloud.EntityFramework.EventCloudDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<TaskManager.EntityFramework.TaskManagerDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "EventCloud";
+            ContextKey = "TaskManager";
         }
 
-        protected override void Seed(EventCloud.EntityFramework.EventCloudDbContext context)
+        protected override void Seed(TaskManager.EntityFramework.TaskManagerDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

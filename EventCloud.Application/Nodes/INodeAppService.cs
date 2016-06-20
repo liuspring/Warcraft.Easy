@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using EventCloud.Nodes.Dto;
+using TaskManager.Nodes.Dto;
 
-namespace EventCloud.Nodes
+namespace TaskManager.Nodes
 {
     public interface INodeAppService
     {

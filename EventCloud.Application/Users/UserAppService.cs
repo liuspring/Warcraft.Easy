@@ -12,15 +12,15 @@ using Abp.Domain.Repositories;
 using Abp.Domain.Uow;
 using Abp.UI;
 using AutoMapper;
-using EventCloud.MultiTenancy;
-using EventCloud.Users.Dto;
+using TaskManager.MultiTenancy;
+using TaskManager.Users.Dto;
 using Abp.Extensions;
 using Microsoft.AspNet.Identity;
 
-namespace EventCloud.Users
+namespace TaskManager.Users
 {
     /* THIS IS JUST A SAMPLE. */
-    public class UserAppService : EventCloudAppServiceBase, IUserAppService
+    public class UserAppService : TaskManagerAppServiceBase, IUserAppService
     {
         private readonly UserManager _userManager;
         private readonly TenantManager _tenantManager;

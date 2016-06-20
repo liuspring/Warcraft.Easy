@@ -1,12 +1,12 @@
 using Abp;
 
-namespace EventCloud
+namespace TaskManager
 {
-    public class EventCloudServiceBase : AbpServiceBase
+    public class TaskManagerServiceBase : AbpServiceBase
     {
-        public EventCloudServiceBase()
+        public TaskManagerServiceBase()
         {
-            LocalizationSourceName = EventCloudConsts.LocalizationSourceName;
+            LocalizationSourceName = TaskManagerConsts.LocalizationSourceName;
         }
     }
 }

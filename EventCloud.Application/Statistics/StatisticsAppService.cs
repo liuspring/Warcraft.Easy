@@ -4,13 +4,13 @@ using System.Threading.Tasks;
 using Abp.Application.Services.Dto;
 using Abp.Domain.Repositories;
 using Abp.Domain.Uow;
-using EventCloud.Events;
-using EventCloud.MultiTenancy;
-using EventCloud.Users;
+using TaskManager.Events;
+using TaskManager.MultiTenancy;
+using TaskManager.Users;
 
-namespace EventCloud.Statistics
+namespace TaskManager.Statistics
 {
-    public class StatisticsAppService : EventCloudAppServiceBase, IStatisticsAppService
+    public class StatisticsAppService : TaskManagerAppServiceBase, IStatisticsAppService
     {
         private readonly IRepository<Tenant> _tenantRepository;
         private readonly IRepository<User, long> _userRepository;

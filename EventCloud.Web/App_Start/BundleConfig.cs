@@ -1,6 +1,6 @@
 ﻿using System.Web.Optimization;
 
-namespace EventCloud.Web
+namespace TaskManager.Web
 {
     public static class BundleConfig
     {

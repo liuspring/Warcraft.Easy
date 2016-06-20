@@ -1,9 +1,9 @@
 ﻿using Abp.Application.Features;
-using EventCloud.Authorization.Roles;
-using EventCloud.MultiTenancy;
-using EventCloud.Users;
+using TaskManager.Authorization.Roles;
+using TaskManager.MultiTenancy;
+using TaskManager.Users;
 
-namespace EventCloud.Features
+namespace TaskManager.Features
 {
     public class FeatureValueStore : AbpFeatureValueStore<Tenant, Role, User>
     {

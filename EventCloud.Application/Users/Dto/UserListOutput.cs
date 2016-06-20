@@ -1,6 +1,6 @@
 ﻿using Abp.AutoMapper;
 
-namespace EventCloud.Users.Dto
+namespace TaskManager.Users.Dto
 {
     [AutoMapFrom(typeof(User))]
     public class UserListOutput

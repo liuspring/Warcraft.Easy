@@ -5,12 +5,12 @@ using Abp.Application.Navigation;
 using Abp.Auditing;
 using Abp.Authorization;
 using Abp.AutoMapper;
-using EventCloud.Sessions.Dto;
+using TaskManager.Sessions.Dto;
 
-namespace EventCloud.Sessions
+namespace TaskManager.Sessions
 {
     [AbpAuthorize]
-    public class SessionAppService : EventCloudAppServiceBase, ISessionAppService
+    public class SessionAppService : TaskManagerAppServiceBase, ISessionAppService
     {
         [DisableAuditing]
         public async Task<GetCurrentLoginInformationsOutput> GetCurrentLoginInformations()

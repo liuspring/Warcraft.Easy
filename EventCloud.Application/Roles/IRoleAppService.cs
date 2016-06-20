@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using Abp.Application.Services;
-using EventCloud.Roles.Dto;
+using TaskManager.Roles.Dto;
 
-namespace EventCloud.Roles
+namespace TaskManager.Roles
 {
     public interface IRoleAppService : IApplicationService
     {

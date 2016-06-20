@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using EventCloud.Nodes;
-using EventCloud.Tasks;
+using TaskManager.Nodes;
+using TaskManager.Tasks;
 
-namespace EventCloud.Commands
+namespace TaskManager.Commands
 {
     [Table("qrtz_command")]
     [Description("任务命令表")]

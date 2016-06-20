@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace EventCloud.Web
+namespace TaskManager.Web
 {
     public static class RouteConfig
     {

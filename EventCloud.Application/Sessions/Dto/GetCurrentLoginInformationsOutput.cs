@@ -2,7 +2,7 @@
 using Abp.Application.Navigation;
 using Abp.Application.Services.Dto;
 
-namespace EventCloud.Sessions.Dto
+namespace TaskManager.Sessions.Dto
 {
     public class GetCurrentLoginInformationsOutput : IOutputDto
     {

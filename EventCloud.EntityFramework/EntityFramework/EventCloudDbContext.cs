@@ -1,15 +1,15 @@
 ﻿using System.Data.Common;
 using System.Data.Entity;
 using Abp.Zero.EntityFramework;
-using EventCloud.Authorization.Roles;
-using EventCloud.Events;
-using EventCloud.MultiTenancy;
-using EventCloud.Users;
+using TaskManager.Authorization.Roles;
+using TaskManager.Events;
+using TaskManager.MultiTenancy;
+using TaskManager.Users;
 
-namespace EventCloud.EntityFramework
+namespace TaskManager.EntityFramework
 {
     [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
-    public class EventCloudDbContext : AbpZeroDbContext<Tenant, Role, User>
+    public class TaskManagerDbContext : AbpZeroDbContext<Tenant, Role, User>
     {
         public virtual IDbSet<Event> Events { get; set; }
 
@@ -44,24 +44,24 @@ namespace EventCloud.EntityFramework
         *   But it may cause problems when working Migrate.exe of EF. If you will apply migrations on command line, do not
         *   pass connection string name to base classes. ABP works either way.
         */
-        public EventCloudDbContext()
+        public TaskManagerDbContext()
             : base("Default")
         {
 
         }
 
         /* NOTE:
-         *   This constructor is used by ABP to pass connection string defined in EventCloudDataModule.PreInitialize.
-         *   Notice that, actually you will not directly create an instance of EventCloudDbContext since ABP automatically handles it.
+         *   This constructor is used by ABP to pass connection string defined in TaskManagerDataModule.PreInitialize.
+         *   Notice that, actually you will not directly create an instance of TaskManagerDbContext since ABP automatically handles it.
          */
-        public EventCloudDbContext(string nameOrConnectionString)
+        public TaskManagerDbContext(string nameOrConnectionString)
             : base(nameOrConnectionString)
         {
 
         }
 
         //This constructor is used in tests
-        public EventCloudDbContext(DbConnection connection)
+        public TaskManagerDbContext(DbConnection connection)
             : base(connection, true)
         {
 

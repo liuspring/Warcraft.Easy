@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 
-namespace EventCloud.Nodes
+namespace TaskManager.Nodes
 {
     [Table("qrtz_node")]
     public class Node : BaseEntity

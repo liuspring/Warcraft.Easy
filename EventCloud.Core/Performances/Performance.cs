@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using EventCloud.Nodes;
-using EventCloud.Tasks;
+using TaskManager.Nodes;
+using TaskManager.Tasks;
 
-namespace EventCloud.Performances
+namespace TaskManager.Performances
 {
     [Table("qrtz_performance")]
     [Description("节点和任务性能记录表")]

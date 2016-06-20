@@ -2,7 +2,7 @@
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 
-namespace EventCloud.Categorys.Dto
+namespace TaskManager.Categorys.Dto
 {
     [AutoMapFrom(typeof(Category))]
     public class CreateCategoryInput : IInputDto

@@ -2,7 +2,7 @@
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 
-namespace EventCloud.Events.Dtos
+namespace TaskManager.Events.Dtos
 {
     [AutoMapFrom(typeof(EventRegistration))]
     public class EventRegistrationDto : CreationAuditedEntityDto

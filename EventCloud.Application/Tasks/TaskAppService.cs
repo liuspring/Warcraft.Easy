@@ -4,12 +4,12 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
-using EventCloud.Tasks.Dto;
-using EventCloud.Versions;
+using TaskManager.Tasks.Dto;
+using TaskManager.Versions;
 
-namespace EventCloud.Tasks
+namespace TaskManager.Tasks
 {
-    public class TaskAppService : EventCloudAppServiceBase, ITaskAppService
+    public class TaskAppService : TaskManagerAppServiceBase, ITaskAppService
     {
 
         private readonly IRepository<Task, int> _taskRepository;

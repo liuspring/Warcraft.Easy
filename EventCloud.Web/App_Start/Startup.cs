@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Configuration;
-using EventCloud.Api.Controllers;
-using EventCloud.Web;
+using TaskManager.Api.Controllers;
+using TaskManager.Web;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
@@ -13,7 +13,7 @@ using Owin;
 
 [assembly: OwinStartup(typeof(Startup))]
 
-namespace EventCloud.Web
+namespace TaskManager.Web
 {
     public class Startup
     {

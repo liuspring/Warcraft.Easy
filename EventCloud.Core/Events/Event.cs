@@ -7,9 +7,9 @@ using Abp.Domain.Entities;
 using Abp.Domain.Entities.Auditing;
 using Abp.Timing;
 using Abp.UI;
-using EventCloud.Domain.Events;
+using TaskManager.Domain.Events;
 
-namespace EventCloud.Events
+namespace TaskManager.Events
 {
     [Table("AppEvents")]
     public class Event : FullAuditedEntity<Guid>, IMustHaveTenant

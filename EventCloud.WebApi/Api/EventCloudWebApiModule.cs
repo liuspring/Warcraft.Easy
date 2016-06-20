@@ -6,17 +6,17 @@ using Abp.Modules;
 using Abp.WebApi;
 using Abp.WebApi.Controllers.Dynamic.Builders;
 
-namespace EventCloud.Api
+namespace TaskManager.Api
 {
-    [DependsOn(typeof(AbpWebApiModule), typeof(EventCloudApplicationModule))]
-    public class EventCloudWebApiModule : AbpModule
+    [DependsOn(typeof(AbpWebApiModule), typeof(TaskManagerApplicationModule))]
+    public class TaskManagerWebApiModule : AbpModule
     {
         public override void Initialize()
         {
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
 
             DynamicApiControllerBuilder
-                .ForAll<IApplicationService>(typeof(EventCloudApplicationModule).Assembly, "app")
+                .ForAll<IApplicationService>(typeof(TaskManagerApplicationModule).Assembly, "app")
                 .Build();
 
             Configuration.Modules.AbpWebApi().HttpConfiguration.Filters.Add(new HostAuthenticationFilter("Bearer"));

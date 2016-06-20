@@ -2,12 +2,12 @@
 using System.Linq;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
-using EventCloud.Commands.Dto;
-using EventCloud.Tasks;
+using TaskManager.Commands.Dto;
+using TaskManager.Tasks;
 
-namespace EventCloud.Commands
+namespace TaskManager.Commands
 {
-    public class CommandAppService : EventCloudAppServiceBase, ICommandAppService
+    public class CommandAppService : TaskManagerAppServiceBase, ICommandAppService
     {
 
         private readonly IRepository<Command, int> _commandRepository;

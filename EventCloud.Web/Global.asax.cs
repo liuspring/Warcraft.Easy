@@ -3,7 +3,7 @@ using Abp.Dependency;
 using Abp.Web;
 using Castle.Facilities.Logging;
 
-namespace EventCloud.Web
+namespace TaskManager.Web
 {
     public class MvcApplication : AbpWebApplication
     {

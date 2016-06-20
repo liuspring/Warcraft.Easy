@@ -5,9 +5,9 @@ using Abp.Events.Bus.Entities;
 using Abp.Events.Bus.Handlers;
 using Abp.Threading;
 using Castle.Core.Logging;
-using EventCloud.Users;
+using TaskManager.Users;
 
-namespace EventCloud.Events.Notifications
+namespace TaskManager.Events.Notifications
 {
     public class EventUserEmailer : 
         IEventHandler<EntityCreatedEventData<Event>>,

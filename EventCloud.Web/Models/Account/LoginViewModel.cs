@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using EventCloud.MultiTenancy;
+using TaskManager.MultiTenancy;
 
-namespace EventCloud.Web.Models.Account
+namespace TaskManager.Web.Models.Account
 {
     public class LoginViewModel
     {

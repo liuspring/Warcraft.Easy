@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using EventCloud.Categorys.Dto;
+using TaskManager.Categorys.Dto;
 
-namespace EventCloud.Categorys
+namespace TaskManager.Categorys
 {
     public interface ICategoyAppService
     {

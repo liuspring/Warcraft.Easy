@@ -10,10 +10,10 @@ using Abp.Domain.Uow;
 using Abp.Organizations;
 using Abp.Runtime.Caching;
 using Abp.Zero.Configuration;
-using EventCloud.Authorization.Roles;
-using EventCloud.MultiTenancy;
+using TaskManager.Authorization.Roles;
+using TaskManager.MultiTenancy;
 
-namespace EventCloud.Users
+namespace TaskManager.Users
 {
     public class UserManager : AbpUserManager<Tenant, Role, User>
     {

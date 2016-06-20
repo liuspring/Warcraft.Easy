@@ -5,16 +5,16 @@ using Abp.Application.Navigation;
 using Abp.Application.Services;
 using Abp.IdentityFramework;
 using Abp.Runtime.Session;
-using EventCloud.MultiTenancy;
-using EventCloud.Users;
+using TaskManager.MultiTenancy;
+using TaskManager.Users;
 using Microsoft.AspNet.Identity;
 
-namespace EventCloud
+namespace TaskManager
 {
     /// <summary>
     /// Derive your application services from this class.
     /// </summary>
-    public abstract class EventCloudAppServiceBase : ApplicationService
+    public abstract class TaskManagerAppServiceBase : ApplicationService
     {
         public TenantManager TenantManager { get; set; }
 
@@ -22,9 +22,9 @@ namespace EventCloud
 
         public IUserNavigationManager UserNavigationManager { get; set; }
 
-        protected EventCloudAppServiceBase()
+        protected TaskManagerAppServiceBase()
         {
-            LocalizationSourceName = EventCloudConsts.LocalizationSourceName;
+            LocalizationSourceName = TaskManagerConsts.LocalizationSourceName;
         }
         protected virtual Task<User> GetCurrentUserAsync()
         {

@@ -1,4 +1,4 @@
-namespace EventCloud.Migrations
+namespace TaskManager.Migrations
 {
     using System;
     using System.Collections.Generic;

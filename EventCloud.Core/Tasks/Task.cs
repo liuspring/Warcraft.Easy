@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Castle.MicroKernel.Registration;
 
-namespace EventCloud.Tasks
+namespace TaskManager.Tasks
 {
     [Table("qrtz_task")]
     [Description("任务表")]

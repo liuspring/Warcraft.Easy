@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using EventCloud.Nodes;
-using EventCloud.Tasks;
+using TaskManager.Nodes;
+using TaskManager.Tasks;
 
-namespace EventCloud.Errors
+namespace TaskManager.Errors
 {
     [Table("qrtz_error")]
     [Description("错误日志表")]

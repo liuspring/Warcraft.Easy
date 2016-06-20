@@ -1,7 +1,7 @@
-﻿namespace EventCloud
+﻿namespace TaskManager
 {
-    public class EventCloudConsts
+    public class TaskManagerConsts
     {
-        public const string LocalizationSourceName = "EventCloud";
+        public const string LocalizationSourceName = "TaskManager";
     }
 }

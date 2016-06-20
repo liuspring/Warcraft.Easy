@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using Abp.Configuration;
 
-namespace EventCloud.Configuration
+namespace TaskManager.Configuration
 {
-    public class EventCloudSettingProvider : SettingProvider
+    public class TaskManagerSettingProvider : SettingProvider
     {
         public override IEnumerable<SettingDefinition> GetSettingDefinitions(SettingDefinitionProviderContext context)
         {
             return new[]
             {
                 new SettingDefinition(
-                    EventCloudSettingNames.MaxAllowedEventRegistrationCountInLast30DaysPerUser,
+                    TaskManagerSettingNames.MaxAllowedEventRegistrationCountInLast30DaysPerUser,
                     defaultValue: "10",
                     scopes: SettingScopes.Tenant),
             };

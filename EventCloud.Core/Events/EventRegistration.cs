@@ -5,9 +5,9 @@ using Abp.Domain.Entities;
 using Abp.Domain.Entities.Auditing;
 using Abp.Domain.Repositories;
 using Abp.UI;
-using EventCloud.Users;
+using TaskManager.Users;
 
-namespace EventCloud.Events
+namespace TaskManager.Events
 {
     [Table("AppEventRegistrations")]
     public class EventRegistration : CreationAuditedEntity, IMustHaveTenant

@@ -1,6 +1,6 @@
 ﻿using Abp.AutoMapper;
 
-namespace EventCloud.Tasks.Dto
+namespace TaskManager.Tasks.Dto
 {
     [AutoMapFrom(typeof(Task))]
     public class TaskListOutput

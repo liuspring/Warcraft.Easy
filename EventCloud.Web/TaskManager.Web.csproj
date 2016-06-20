@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EventCloud.Web</RootNamespace>
-    <AssemblyName>EventCloud.Web</AssemblyName>
+    <RootNamespace>TaskManager.Web</RootNamespace>
+    <AssemblyName>TaskManager.Web</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -1960,21 +1960,21 @@
       <Project>{0457041f-e667-470c-a3f6-dd507982250a}</Project>
       <Name>Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EventCloud.Application\EventCloud.Application.csproj">
+    <ProjectReference Include="..\EventCloud.Application\TaskManager.Application.csproj">
       <Project>{edf5d964-4c0f-4f19-b674-58a38a5e5401}</Project>
-      <Name>EventCloud.Application</Name>
+      <Name>TaskManager.Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EventCloud.Core\EventCloud.Core.csproj">
+    <ProjectReference Include="..\EventCloud.Core\TaskManager.Core.csproj">
       <Project>{17298ea0-af73-4f30-b6f1-2066100d7d74}</Project>
-      <Name>EventCloud.Core</Name>
+      <Name>TaskManager.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EventCloud.EntityFramework\EventCloud.EntityFramework.csproj">
+    <ProjectReference Include="..\EventCloud.EntityFramework\TaskManager.EntityFramework.csproj">
       <Project>{3979f157-deb0-4878-ab1d-4cef6b5a1300}</Project>
-      <Name>EventCloud.EntityFramework</Name>
+      <Name>TaskManager.EntityFramework</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EventCloud.WebApi\EventCloud.WebApi.csproj">
+    <ProjectReference Include="..\EventCloud.WebApi\TaskManager.WebApi.csproj">
       <Project>{5eb52d3d-09fd-463a-b02a-8d9856bd3724}</Project>
-      <Name>EventCloud.WebApi</Name>
+      <Name>TaskManager.WebApi</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

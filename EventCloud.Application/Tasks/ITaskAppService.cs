@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using EventCloud.Tasks.Dto;
+using TaskManager.Tasks.Dto;
 
-namespace EventCloud.Tasks
+namespace TaskManager.Tasks
 {
     public interface ITaskAppService
     {

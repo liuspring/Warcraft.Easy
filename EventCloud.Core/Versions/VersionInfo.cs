@@ -3,9 +3,9 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.IO;
-using EventCloud.Tasks;
+using TaskManager.Tasks;
 
-namespace EventCloud.Versions
+namespace TaskManager.Versions
 {
     [Table("qrtz_version_info")]
     [Description("任务版本库")]

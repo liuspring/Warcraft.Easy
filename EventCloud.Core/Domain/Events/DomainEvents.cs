@@ -1,6 +1,6 @@
 ﻿using Abp.Events.Bus;
 
-namespace EventCloud.Domain.Events
+namespace TaskManager.Domain.Events
 {
     public static class DomainEvents
     {

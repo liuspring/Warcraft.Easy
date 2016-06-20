@@ -1,4 +1,4 @@
-﻿namespace EventCloud.Web.Models.Account
+﻿namespace TaskManager.Web.Models.Account
 {
     public class LoginFormViewModel
     {

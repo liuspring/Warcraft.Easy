@@ -6,18 +6,18 @@ using Abp.Application.Services.Dto;
 using Abp.Runtime.Session;
 using Abp.Timing;
 using Abp.UI;
-using EventCloud.EntityFramework;
-using EventCloud.Events;
-using EventCloud.Events.Dtos;
-using EventCloud.Tests.Data;
-using EventCloud.Tests.Sessions;
+using TaskManager.EntityFramework;
+using TaskManager.Events;
+using TaskManager.Events.Dtos;
+using TaskManager.Tests.Data;
+using TaskManager.Tests.Sessions;
 using NSubstitute;
 using Shouldly;
 using Xunit;
 
-namespace EventCloud.Tests.Events
+namespace TaskManager.Tests.Events
 {
-    public class EventAppService_Tests : EventCloudTestBase
+    public class EventAppService_Tests : TaskManagerTestBase
     {
         private readonly IEventAppService _eventAppService;
 
@@ -137,7 +137,7 @@ namespace EventCloud.Tests.Events
             return UsingDbContext(context => GetTestEvent(context));
         }
 
-        private static Event GetTestEvent(EventCloudDbContext context)
+        private static Event GetTestEvent(TaskManagerDbContext context)
         {
             return context.Events.Single(e => e.Title == TestDataBuilder.TestEventTitle);
         }

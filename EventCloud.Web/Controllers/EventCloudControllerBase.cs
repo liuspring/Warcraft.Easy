@@ -4,20 +4,20 @@ using Abp.Application.Navigation;
 using Abp.IdentityFramework;
 using Abp.UI;
 using Abp.Web.Mvc.Controllers;
-using EventCloud.Events;
-using EventCloud.Users;
+using TaskManager.Events;
+using TaskManager.Users;
 using Microsoft.AspNet.Identity;
 
-namespace EventCloud.Web.Controllers
+namespace TaskManager.Web.Controllers
 {
     /// <summary>
     /// Derive all Controllers from this class.
     /// </summary>
-    public abstract class EventCloudControllerBase : AbpController
+    public abstract class TaskManagerControllerBase : AbpController
     {
-        protected EventCloudControllerBase()
+        protected TaskManagerControllerBase()
         {
-            LocalizationSourceName = EventCloudConsts.LocalizationSourceName;
+            LocalizationSourceName = TaskManagerConsts.LocalizationSourceName;
         }
 
         protected virtual void CheckModelState()

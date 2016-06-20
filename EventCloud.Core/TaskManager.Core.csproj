@@ -7,8 +7,8 @@
     <ProjectGuid>{17298EA0-AF73-4F30-B6F1-2066100D7D74}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EventCloud</RootNamespace>
-    <AssemblyName>EventCloud.Core</AssemblyName>
+    <RootNamespace>TaskManager</RootNamespace>
+    <AssemblyName>TaskManager.Core</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>

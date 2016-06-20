@@ -1,4 +1,4 @@
-﻿namespace EventCloud.Authorization.Roles
+﻿namespace TaskManager.Authorization.Roles
 {
     public static class StaticRoleNames
     {

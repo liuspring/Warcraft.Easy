@@ -1,10 +1,10 @@
-﻿using EventCloud.Nodes;
+﻿using TaskManager.Nodes;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using EventCloud.Tasks;
+using TaskManager.Tasks;
 
-namespace EventCloud.Logs
+namespace TaskManager.Logs
 {
     [Table("qrtz_log")]
     [Description("一般日志表")]

@@ -1,8 +1,8 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
-using EventCloud.Users;
+using TaskManager.Users;
 
-namespace EventCloud.Sessions.Dto
+namespace TaskManager.Sessions.Dto
 {
     [AutoMapFrom(typeof(User))]
     public class UserLoginInfoDto : EntityDto<long>

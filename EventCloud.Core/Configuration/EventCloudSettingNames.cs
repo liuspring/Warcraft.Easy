@@ -1,7 +1,7 @@
-﻿namespace EventCloud.Configuration
+﻿namespace TaskManager.Configuration
 {
-    public class EventCloudSettingNames
+    public class TaskManagerSettingNames
     {
-        public const string MaxAllowedEventRegistrationCountInLast30DaysPerUser = "EventCloud.MaxAllowedEventRegistrationCountInLast30DaysPerUser";
+        public const string MaxAllowedEventRegistrationCountInLast30DaysPerUser = "TaskManager.MaxAllowedEventRegistrationCountInLast30DaysPerUser";
     }
 }

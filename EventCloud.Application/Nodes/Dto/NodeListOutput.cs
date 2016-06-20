@@ -1,7 +1,7 @@
 ﻿using System;
 using Abp.AutoMapper;
 
-namespace EventCloud.Nodes.Dto
+namespace TaskManager.Nodes.Dto
 {
     [AutoMapFrom(typeof(Node))]
     public class NodeListOutput

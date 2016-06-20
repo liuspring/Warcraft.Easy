@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace EventCloud.Api.Models
+namespace TaskManager.Api.Models
 {
     public class LoginModel
     {

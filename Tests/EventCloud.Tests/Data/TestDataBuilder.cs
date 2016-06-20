@@ -1,18 +1,18 @@
 using System.Linq;
 using Abp.Timing;
-using EventCloud.EntityFramework;
-using EventCloud.Events;
-using EventCloud.MultiTenancy;
+using TaskManager.EntityFramework;
+using TaskManager.Events;
+using TaskManager.MultiTenancy;
 
-namespace EventCloud.Tests.Data
+namespace TaskManager.Tests.Data
 {
     public class TestDataBuilder
     {
         public const string TestEventTitle = "Test event title";
 
-        private readonly EventCloudDbContext _context;
+        private readonly TaskManagerDbContext _context;
 
-        public TestDataBuilder(EventCloudDbContext context)
+        public TestDataBuilder(TaskManagerDbContext context)
         {
             _context = context;
         }

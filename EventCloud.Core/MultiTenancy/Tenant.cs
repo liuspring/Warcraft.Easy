@@ -1,7 +1,7 @@
 ﻿using Abp.MultiTenancy;
-using EventCloud.Users;
+using TaskManager.Users;
 
-namespace EventCloud.MultiTenancy
+namespace TaskManager.MultiTenancy
 {
     public class Tenant : AbpTenant<Tenant, User>
     {

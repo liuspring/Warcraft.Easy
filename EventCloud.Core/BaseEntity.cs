@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using Abp.Domain.Entities.Auditing;
 
-namespace EventCloud
+namespace TaskManager
 {
     public abstract class BaseEntity : FullAuditedEntity
     {

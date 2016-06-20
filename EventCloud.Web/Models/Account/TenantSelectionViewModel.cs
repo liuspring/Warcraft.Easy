@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Abp.AutoMapper;
-using EventCloud.MultiTenancy;
+using TaskManager.MultiTenancy;
 
-namespace EventCloud.Web.Models.Account
+namespace TaskManager.Web.Models.Account
 {
     public class TenantSelectionViewModel
     {

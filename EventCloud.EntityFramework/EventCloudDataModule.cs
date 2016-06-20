@@ -2,12 +2,12 @@
 using System.Reflection;
 using Abp.Modules;
 using Abp.Zero.EntityFramework;
-using EventCloud.EntityFramework;
+using TaskManager.EntityFramework;
 
-namespace EventCloud
+namespace TaskManager
 {
-    [DependsOn(typeof(AbpZeroEntityFrameworkModule), typeof(EventCloudCoreModule))]
-    public class EventCloudDataModule : AbpModule
+    [DependsOn(typeof(AbpZeroEntityFrameworkModule), typeof(TaskManagerCoreModule))]
+    public class TaskManagerDataModule : AbpModule
     {
         public override void PreInitialize()
         {

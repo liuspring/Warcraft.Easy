@@ -1,4 +1,4 @@
-namespace EventCloud.Web.Navigation
+namespace TaskManager.Web.Navigation
 {
     public static class AppPageNames
     {

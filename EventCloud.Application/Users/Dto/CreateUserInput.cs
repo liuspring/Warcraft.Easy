@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
-using EventCloud.MultiTenancy;
+using TaskManager.MultiTenancy;
 
-namespace EventCloud.Users.Dto
+namespace TaskManager.Users.Dto
 {
     [AutoMapFrom(typeof(User))]
     public class CreateUserInput : IInputDto

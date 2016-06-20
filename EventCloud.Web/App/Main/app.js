@@ -21,17 +21,17 @@
                 .state('events', {
                     url: '/events',
                     templateUrl: '/App/Main/views/events/index.cshtml',
-                    menu: 'Events' //Matches to name of 'Events' menu in EventCloudNavigationProvider
+                    menu: 'Events' //Matches to name of 'Events' menu in TaskManagerNavigationProvider
                 })
                 .state('eventDetail', {
                     url: '/events/:id',
                     templateUrl: '/App/Main/views/events/detail.cshtml',
-                    menu: 'Events' //Matches to name of 'Events' menu in EventCloudNavigationProvider
+                    menu: 'Events' //Matches to name of 'Events' menu in TaskManagerNavigationProvider
                 })
                 .state('about', {
                     url: '/about',
                     templateUrl: '/App/Main/views/about/about.cshtml',
-                    menu: 'About' //Matches to name of 'About' menu in EventCloudNavigationProvider
+                    menu: 'About' //Matches to name of 'About' menu in TaskManagerNavigationProvider
                 });
         }
     ]);

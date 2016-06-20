@@ -16,19 +16,19 @@ using Abp.Threading;
 using Abp.UI;
 using Abp.Web.Mvc.Models;
 using Common;
-using EventCloud.Authorization.Roles;
-using EventCloud.MultiTenancy;
-using EventCloud.Users;
-using EventCloud.Web.Models.Account;
+using TaskManager.Authorization.Roles;
+using TaskManager.MultiTenancy;
+using TaskManager.Users;
+using TaskManager.Web.Models.Account;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MyCompanyName.AbpZeroTemplate.Web.Controllers.Results;
 using System.Drawing;
 
-namespace EventCloud.Web.Controllers
+namespace TaskManager.Web.Controllers
 {
-    public class AccountController : EventCloudControllerBase
+    public class AccountController : TaskManagerControllerBase
     {
         private const int MWidth = 100;
         private const int MHeight = 21;

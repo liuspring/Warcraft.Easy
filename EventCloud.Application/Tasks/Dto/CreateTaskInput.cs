@@ -2,7 +2,7 @@
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 
-namespace EventCloud.Tasks.Dto
+namespace TaskManager.Tasks.Dto
 {
     [AutoMapFrom(typeof(Task))]
     public class CreateTaskInput:IInputDto

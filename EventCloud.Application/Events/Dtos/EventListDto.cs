@@ -2,7 +2,7 @@
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 
-namespace EventCloud.Events.Dtos
+namespace TaskManager.Events.Dtos
 {
     [AutoMapFrom(typeof (Event))]
     public class EventListDto: FullAuditedEntityDto<Guid>

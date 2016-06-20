@@ -2,12 +2,12 @@
 using Abp.EntityFramework;
 using Abp.EntityFramework.Repositories;
 
-namespace EventCloud.EntityFramework.Repositories
+namespace TaskManager.EntityFramework.Repositories
 {
-    public abstract class EventCloudRepositoryBase<TEntity, TPrimaryKey> : EfRepositoryBase<EventCloudDbContext, TEntity, TPrimaryKey>
+    public abstract class TaskManagerRepositoryBase<TEntity, TPrimaryKey> : EfRepositoryBase<TaskManagerDbContext, TEntity, TPrimaryKey>
         where TEntity : class, IEntity<TPrimaryKey>
     {
-        protected EventCloudRepositoryBase(IDbContextProvider<EventCloudDbContext> dbContextProvider)
+        protected TaskManagerRepositoryBase(IDbContextProvider<TaskManagerDbContext> dbContextProvider)
             : base(dbContextProvider)
         {
 
@@ -16,10 +16,10 @@ namespace EventCloud.EntityFramework.Repositories
         //add common methods for all repositories
     }
 
-    public abstract class EventCloudRepositoryBase<TEntity> : EventCloudRepositoryBase<TEntity, int>
+    public abstract class TaskManagerRepositoryBase<TEntity> : TaskManagerRepositoryBase<TEntity, int>
         where TEntity : class, IEntity<int>
     {
-        protected EventCloudRepositoryBase(IDbContextProvider<EventCloudDbContext> dbContextProvider)
+        protected TaskManagerRepositoryBase(IDbContextProvider<TaskManagerDbContext> dbContextProvider)
             : base(dbContextProvider)
         {
 

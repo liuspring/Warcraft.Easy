@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Abp.AutoMapper;
 
-namespace EventCloud.Commands.Dto
+namespace TaskManager.Commands.Dto
 {
     [AutoMapFrom(typeof(Command))]
     public class CommandListOutput

@@ -2,11 +2,11 @@
 using System.Linq;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
-using EventCloud.Categorys.Dto;
+using TaskManager.Categorys.Dto;
 
-namespace EventCloud.Categorys
+namespace TaskManager.Categorys
 {
-    public class CategoyAppService : EventCloudAppServiceBase, ICategoyAppService
+    public class CategoyAppService : TaskManagerAppServiceBase, ICategoyAppService
     {
         private readonly IRepository<Category, int> _categoryRepository;
 

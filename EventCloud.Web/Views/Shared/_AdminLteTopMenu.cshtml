@@ -1,6 +1,6 @@
 ﻿@using Abp
-@using EventCloud
-@using EventCloud.Web.Controllers
+@using TaskManager
+@using TaskManager.Web.Controllers
 @*
     This partial controls the top menu of the AdminLTE Template, being called automatically by _AdminLteLayout
        TODO: All of the content in here is stand-in that must be replaced by the real behavior of your app
@@ -219,10 +219,10 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="/Content/AdminLTE/img/user2-160x160.jpg" class="user-image" alt="User Image" />
                         @{
-                            EventCloud.Users.User user = null;
+                            TaskManager.Users.User user = null;
                             if (Session["User"] != null)
                             {
-                                user = (EventCloud.Users.User)Session["User"];
+                                user = (TaskManager.Users.User)Session["User"];
                             }
                             if (user == null)
                             {

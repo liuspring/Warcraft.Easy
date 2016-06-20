@@ -1,17 +1,17 @@
 ﻿using Abp.Web.Mvc.Views;
 
-namespace EventCloud.Web.Views
+namespace TaskManager.Web.Views
 {
-    public abstract class EventCloudWebViewPageBase : EventCloudWebViewPageBase<dynamic>
+    public abstract class TaskManagerWebViewPageBase : TaskManagerWebViewPageBase<dynamic>
     {
 
     }
 
-    public abstract class EventCloudWebViewPageBase<TModel> : AbpWebViewPage<TModel>
+    public abstract class TaskManagerWebViewPageBase<TModel> : AbpWebViewPage<TModel>
     {
-        protected EventCloudWebViewPageBase()
+        protected TaskManagerWebViewPageBase()
         {
-            LocalizationSourceName = EventCloudConsts.LocalizationSourceName;
+            LocalizationSourceName = TaskManagerConsts.LocalizationSourceName;
         }
     }
 }

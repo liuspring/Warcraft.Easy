@@ -1,6 +1,6 @@
 ﻿using Abp.Application.Services.Dto;
 
-namespace EventCloud.Events.Dtos
+namespace TaskManager.Events.Dtos
 {
     public class GetEventListInput : IInputDto
     {

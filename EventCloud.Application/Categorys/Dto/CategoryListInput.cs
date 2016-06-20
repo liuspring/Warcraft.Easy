@@ -1,6 +1,6 @@
 ﻿using System.Web;
 
-namespace EventCloud.Categorys.Dto
+namespace TaskManager.Categorys.Dto
 {
     public class CategoryListInput : DataTablesRequest
     {

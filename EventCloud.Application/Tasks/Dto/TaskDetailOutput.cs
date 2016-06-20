@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
-using EventCloud.Categorys;
+using TaskManager.Categorys;
 
-namespace EventCloud.Tasks.Dto
+namespace TaskManager.Tasks.Dto
 {
     [AutoMapFrom(typeof(Task))]
     public class TaskDetailOutput : BaseEntity, IOutputDto

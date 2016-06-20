@@ -1,9 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 using Abp.Application.Services.Dto;
-using EventCloud.MultiTenancy;
-using EventCloud.Users;
+using TaskManager.MultiTenancy;
+using TaskManager.Users;
 
-namespace EventCloud.Web.Models.Account
+namespace TaskManager.Web.Models.Account
 {
     public class RegisterViewModel : IInputDto
     {

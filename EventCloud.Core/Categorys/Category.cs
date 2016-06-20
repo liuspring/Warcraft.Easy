@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EventCloud.Categorys
+namespace TaskManager.Categorys
 {
     [Table("qrtz_category")]
     [Description("任务分类表")]

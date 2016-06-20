@@ -1,10 +1,10 @@
 ﻿using System.Web.Mvc;
 using Abp.Web.Mvc.Authorization;
 
-namespace EventCloud.Web.Controllers
+namespace TaskManager.Web.Controllers
 {
     [AbpMvcAuthorize]
-    public class HomeController : EventCloudControllerBase
+    public class HomeController : TaskManagerControllerBase
     {
         public ActionResult Index()
         {

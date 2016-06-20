@@ -4,12 +4,12 @@ using Abp.Configuration;
 using Abp.Domain.Repositories;
 using Abp.Timing;
 using Abp.UI;
-using EventCloud.Configuration;
-using EventCloud.Users;
+using TaskManager.Configuration;
+using TaskManager.Users;
 
-namespace EventCloud.Events
+namespace TaskManager.Events
 {
-    public class EventRegistrationPolicy : EventCloudServiceBase, IEventRegistrationPolicy
+    public class EventRegistrationPolicy : TaskManagerServiceBase, IEventRegistrationPolicy
     {
         private readonly IRepository<EventRegistration> _eventRegistrationRepository;
 
@@ -38,7 +38,7 @@ namespace EventCloud.Events
         private async Task CheckEventRegistrationFrequencyAsync(User user)
         {
             var oneMonthAgo = Clock.Now.AddDays(-30);
-            var maxAllowedEventRegistrationCountInLast30DaysPerUser = await SettingManager.GetSettingValueAsync<int>(EventCloudSettingNames.MaxAllowedEventRegistrationCountInLast30DaysPerUser);
+            var maxAllowedEventRegistrationCountInLast30DaysPerUser = await SettingManager.GetSettingValueAsync<int>(TaskManagerSettingNames.MaxAllowedEventRegistrationCountInLast30DaysPerUser);
             if (maxAllowedEventRegistrationCountInLast30DaysPerUser > 0)
             {
                 var registrationCountInLast30Days = await _eventRegistrationRepository.CountAsync(r => r.UserId == user.Id && r.CreationTime >= oneMonthAgo);

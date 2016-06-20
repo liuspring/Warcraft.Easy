@@ -1,11 +1,11 @@
 ﻿using System.Threading.Tasks;
-using EventCloud.Sessions;
+using TaskManager.Sessions;
 using Shouldly;
 using Xunit;
 
-namespace EventCloud.Tests.Sessions
+namespace TaskManager.Tests.Sessions
 {
-    public class SessionAppService_Tests : EventCloudTestBase
+    public class SessionAppService_Tests : TaskManagerTestBase
     {
         private readonly ISessionAppService _sessionAppService;
 

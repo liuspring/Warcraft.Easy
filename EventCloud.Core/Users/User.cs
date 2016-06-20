@@ -1,10 +1,10 @@
 ﻿using System;
 using Abp.Authorization.Users;
 using Abp.Extensions;
-using EventCloud.MultiTenancy;
+using TaskManager.MultiTenancy;
 using Microsoft.AspNet.Identity;
 
-namespace EventCloud.Users
+namespace TaskManager.Users
 {
     public class User : AbpUser<Tenant, User>
     {

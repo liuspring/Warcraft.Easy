@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Abp.Application.Services;
-using EventCloud.Sessions.Dto;
+using TaskManager.Sessions.Dto;
 
-namespace EventCloud.Sessions
+namespace TaskManager.Sessions
 {
     public interface ISessionAppService : IApplicationService
     {

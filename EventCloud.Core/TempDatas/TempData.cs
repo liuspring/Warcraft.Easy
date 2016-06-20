@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using EventCloud.Tasks;
+using TaskManager.Tasks;
 
-namespace EventCloud.TempDatas
+namespace TaskManager.TempDatas
 {
     [Table("qrtz_temp_data")]
     [Description("任务数据库中的临时数据表")]

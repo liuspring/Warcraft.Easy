@@ -2,10 +2,10 @@
 using Abp.AutoMapper;
 using Abp.Modules;
 
-namespace EventCloud
+namespace TaskManager
 {
-    [DependsOn(typeof(EventCloudCoreModule), typeof(AbpAutoMapperModule))]
-    public class EventCloudApplicationModule : AbpModule
+    [DependsOn(typeof(TaskManagerCoreModule), typeof(AbpAutoMapperModule))]
+    public class TaskManagerApplicationModule : AbpModule
     {
         public override void Initialize()
         {

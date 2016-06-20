@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using EventCloud.Commands;
-using EventCloud.Commands.Dto;
-using EventCloud.Nodes;
-using EventCloud.Tasks;
+using TaskManager.Commands;
+using TaskManager.Commands.Dto;
+using TaskManager.Nodes;
+using TaskManager.Tasks;
 
-namespace EventCloud.Web.Controllers
+namespace TaskManager.Web.Controllers
 {
-    public class CommandController : EventCloudControllerBase
+    public class CommandController : TaskManagerControllerBase
     {
         private readonly ICommandAppService _commandAppService;
         private readonly ITaskAppService _taskAppService;

@@ -8,8 +8,8 @@
     <ProjectGuid>{C602C47E-F379-40A3-A146-4F19105B3491}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EventCloud.Tests</RootNamespace>
-    <AssemblyName>EventCloud.Tests</AssemblyName>
+    <RootNamespace>TaskManager.Tests</RootNamespace>
+    <AssemblyName>TaskManager.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
@@ -167,17 +167,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\EventCloud.Application\EventCloud.Application.csproj">
+    <ProjectReference Include="..\..\EventCloud.Application\TaskManager.Application.csproj">
       <Project>{EDF5D964-4C0F-4F19-B674-58A38A5E5401}</Project>
-      <Name>EventCloud.Application</Name>
+      <Name>TaskManager.Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\EventCloud.Core\EventCloud.Core.csproj">
+    <ProjectReference Include="..\..\EventCloud.Core\TaskManager.Core.csproj">
       <Project>{17298EA0-AF73-4F30-B6F1-2066100D7D74}</Project>
-      <Name>EventCloud.Core</Name>
+      <Name>TaskManager.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\EventCloud.EntityFramework\EventCloud.EntityFramework.csproj">
+    <ProjectReference Include="..\..\EventCloud.EntityFramework\TaskManager.EntityFramework.csproj">
       <Project>{3979F157-DEB0-4878-AB1D-4CEF6B5A1300}</Project>
-      <Name>EventCloud.EntityFramework</Name>
+      <Name>TaskManager.EntityFramework</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

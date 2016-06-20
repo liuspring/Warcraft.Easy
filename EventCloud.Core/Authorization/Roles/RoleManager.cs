@@ -2,10 +2,10 @@ using Abp.Authorization;
 using Abp.Authorization.Roles;
 using Abp.Runtime.Caching;
 using Abp.Zero.Configuration;
-using EventCloud.MultiTenancy;
-using EventCloud.Users;
+using TaskManager.MultiTenancy;
+using TaskManager.Users;
 
-namespace EventCloud.Authorization.Roles
+namespace TaskManager.Authorization.Roles
 {
     public class RoleManager : AbpRoleManager<Tenant, Role, User>
     {

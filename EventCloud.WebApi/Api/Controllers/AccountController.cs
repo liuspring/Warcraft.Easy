@@ -4,15 +4,15 @@ using Abp.Authorization.Users;
 using Abp.UI;
 using Abp.Web.Models;
 using Abp.WebApi.Controllers;
-using EventCloud.Api.Models;
-using EventCloud.Authorization.Roles;
-using EventCloud.MultiTenancy;
-using EventCloud.Users;
+using TaskManager.Api.Models;
+using TaskManager.Authorization.Roles;
+using TaskManager.MultiTenancy;
+using TaskManager.Users;
 using Microsoft.Owin.Infrastructure;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
 
-namespace EventCloud.Api.Controllers
+namespace TaskManager.Api.Controllers
 {
     public class AccountController : AbpApiController
     {

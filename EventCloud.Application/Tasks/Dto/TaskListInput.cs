@@ -1,6 +1,6 @@
 ﻿using System.Web;
 
-namespace EventCloud.Tasks.Dto
+namespace TaskManager.Tasks.Dto
 {
     public class TaskListInput : DataTablesRequest
     {

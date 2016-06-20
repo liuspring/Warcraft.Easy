@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using Abp.Application.Services.Dto;
 
-namespace EventCloud.Roles.Dto
+namespace TaskManager.Roles.Dto
 {
     public class UpdateRolePermissionsInput : IInputDto
     {

@@ -1,6 +1,6 @@
 ﻿using System.Web;
 
-namespace EventCloud.Nodes.Dto
+namespace TaskManager.Nodes.Dto
 {
     public class NodeListInput: DataTablesRequest
     {

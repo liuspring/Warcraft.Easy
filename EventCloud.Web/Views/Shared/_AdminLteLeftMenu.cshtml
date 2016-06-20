@@ -1,5 +1,5 @@
-﻿@using EventCloud
-@using EventCloud.Sessions
+﻿@using TaskManager
+@using TaskManager.Sessions
 @using Microsoft.Office.Interop.Excel
 @*
     This partial controls the left menu of the AdminLTE dashboard and is called automatically by _AdminLteLayout
@@ -24,7 +24,7 @@
                 @{
                     if (Session["User"] != null)
                     {
-                        EventCloud.Users.User user = Session["User"] as EventCloud.Users.User;
+                        TaskManager.Users.User user = Session["User"] as TaskManager.Users.User;
                         <p>@user.UserName</p>
                         @*<small>(@user.EmailAddress)</small>*@
                         <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>

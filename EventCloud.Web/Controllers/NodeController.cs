@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using EventCloud.Nodes;
-using EventCloud.Nodes.Dto;
+using TaskManager.Nodes;
+using TaskManager.Nodes.Dto;
 
-namespace EventCloud.Web.Controllers
+namespace TaskManager.Web.Controllers
 {
-    public class NodeController : EventCloudControllerBase
+    public class NodeController : TaskManagerControllerBase
     {
         private readonly INodeAppService _nodeAppService;
         public NodeController(INodeAppService nodeAppService)

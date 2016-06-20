@@ -7,16 +7,16 @@ using Abp.Application.Services.Dto;
 using Abp.Authorization;
 using Abp.Domain.Repositories;
 using Abp.Runtime.Session;
-using EventCloud.Events.Dtos;
-using EventCloud.Users;
+using TaskManager.Events.Dtos;
+using TaskManager.Users;
 using Abp.AutoMapper;
 using Abp.Linq.Extensions;
 using Abp.UI;
 
-namespace EventCloud.Events
+namespace TaskManager.Events
 {
     [AbpAuthorize]
-    public class EventAppService : EventCloudAppServiceBase, IEventAppService
+    public class EventAppService : TaskManagerAppServiceBase, IEventAppService
     {
         private readonly IEventManager _eventManager;
         private readonly IRepository<Event, Guid> _eventRepository;

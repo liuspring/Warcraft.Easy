@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
-using EventCloud.Users.Dto;
+using TaskManager.Users.Dto;
 
-namespace EventCloud.Users
+namespace TaskManager.Users
 {
     public interface IUserAppService : IApplicationService
     {

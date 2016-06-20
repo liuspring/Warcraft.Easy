@@ -1,6 +1,6 @@
 using Abp.Events.Bus.Entities;
 
-namespace EventCloud.Events
+namespace TaskManager.Events
 {
     public class EventCancelledEvent : EntityEventData<Event>
     {

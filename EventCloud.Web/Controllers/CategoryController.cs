@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using EventCloud.Categorys;
-using EventCloud.Categorys.Dto;
+using TaskManager.Categorys;
+using TaskManager.Categorys.Dto;
 
-namespace EventCloud.Web.Controllers
+namespace TaskManager.Web.Controllers
 {
-    public class CategoryController : EventCloudControllerBase
+    public class CategoryController : TaskManagerControllerBase
     {
 
         private readonly ICategoyAppService _categoyAppService;

@@ -2,11 +2,11 @@
 using System.Linq;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
-using EventCloud.Nodes.Dto;
+using TaskManager.Nodes.Dto;
 
-namespace EventCloud.Nodes
+namespace TaskManager.Nodes
 {
-    public class NodeAppService : EventCloudAppServiceBase, INodeAppService
+    public class NodeAppService : TaskManagerAppServiceBase, INodeAppService
     {
         private readonly IRepository<Node, int> _nodeRepository;
 

@@ -2,12 +2,12 @@
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using Abp.AutoMapper;
-using EventCloud.Users;
-using EventCloud.Users.Dto;
+using TaskManager.Users;
+using TaskManager.Users.Dto;
 
-namespace EventCloud.Web.Controllers
+namespace TaskManager.Web.Controllers
 {
-    public class UserController : EventCloudControllerBase
+    public class UserController : TaskManagerControllerBase
     {
         private readonly IUserAppService _userAppService;
         private readonly UserManager _userManager;

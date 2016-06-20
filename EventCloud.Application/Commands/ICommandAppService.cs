@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using EventCloud.Commands.Dto;
+using TaskManager.Commands.Dto;
 
-namespace EventCloud.Commands
+namespace TaskManager.Commands
 {
     public interface ICommandAppService
     {

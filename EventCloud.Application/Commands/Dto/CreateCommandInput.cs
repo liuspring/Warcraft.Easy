@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Abp.AutoMapper;
 
-namespace EventCloud.Commands.Dto
+namespace TaskManager.Commands.Dto
 {
     [AutoMapFrom(typeof(Command))]
     public class CreateCommandInput

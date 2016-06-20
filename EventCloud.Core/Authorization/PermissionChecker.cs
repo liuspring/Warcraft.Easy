@@ -1,9 +1,9 @@
 ﻿using Abp.Authorization;
-using EventCloud.Authorization.Roles;
-using EventCloud.MultiTenancy;
-using EventCloud.Users;
+using TaskManager.Authorization.Roles;
+using TaskManager.MultiTenancy;
+using TaskManager.Users;
 
-namespace EventCloud.Authorization
+namespace TaskManager.Authorization
 {
     public class PermissionChecker : PermissionChecker<Tenant, Role, User>
     {

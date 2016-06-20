@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 
-namespace EventCloud.Events.Dtos
+namespace TaskManager.Events.Dtos
 {
     [AutoMapFrom(typeof(Event))]
     public class EventDetailOutput : FullAuditedEntityDto<Guid>, IOutputDto

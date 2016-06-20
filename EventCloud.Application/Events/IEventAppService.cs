@@ -2,9 +2,9 @@
 using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
-using EventCloud.Events.Dtos;
+using TaskManager.Events.Dtos;
 
-namespace EventCloud.Events
+namespace TaskManager.Events
 {
     public interface IEventAppService : IApplicationService
     {

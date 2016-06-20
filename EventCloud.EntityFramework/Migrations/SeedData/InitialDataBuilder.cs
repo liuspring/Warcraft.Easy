@@ -1,12 +1,12 @@
-﻿using EventCloud.EntityFramework;
+﻿using TaskManager.EntityFramework;
 
-namespace EventCloud.Migrations.SeedData
+namespace TaskManager.Migrations.SeedData
 {
     public class InitialDataBuilder
     {
-        private readonly EventCloudDbContext _context;
+        private readonly TaskManagerDbContext _context;
 
-        public InitialDataBuilder(EventCloudDbContext context)
+        public InitialDataBuilder(TaskManagerDbContext context)
         {
             _context = context;
         }

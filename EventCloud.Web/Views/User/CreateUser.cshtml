@@ -10,7 +10,7 @@
 }
 <link href="~/Content/bootstrapValidator.min.css" rel="stylesheet" />
 @using System.Web.Optimization
-@model EventCloud.Users.Dto.CreateUserInput
+@model TaskManager.Users.Dto.CreateUserInput
 <div class="panel panel-default">
     <div class="panel-body">
         <form id="accountForm" action="@Url.Action("AjaxSaveUser")" class="form-horizontal">
@@ -21,35 +21,35 @@
                 <label for="Name" class="col-md-2 control-label">姓</label>
                 <div class="col-md-6">
                     <input type="text" class="form-control" name="Name" value="@Model.Surname"
-                           placeholder="姓" required maxlength="@EventCloud.Users.User.MaxNameLength">
+                           placeholder="姓" required maxlength="@TaskManager.Users.User.MaxNameLength">
                 </div>
             </div>
             <div class="form-group">
                 <label for="Name" class="col-md-2 control-label">名</label>
                 <div class="col-md-6">
                     <input type="text" class="form-control" name="Surname" value="@Model.Surname"
-                           placeholder="名" required maxlength="@EventCloud.Users.User.MaxSurnameLength">
+                           placeholder="名" required maxlength="@TaskManager.Users.User.MaxSurnameLength">
                 </div>
             </div>
             <div class="form-group">
                 <label for="Name" class="col-md-2 control-label">邮箱地址</label>
                 <div class="col-md-6">
                     <input type="email" class="form-control" name="EmailAddress" value="@Model.EmailAddress"
-                           placeholder="邮箱地址" required maxlength="@EventCloud.Users.User.MaxEmailAddressLength">
+                           placeholder="邮箱地址" required maxlength="@TaskManager.Users.User.MaxEmailAddressLength">
                 </div>
             </div>
             <div class="form-group">
                 <label for="Name" class="col-md-2 control-label">用户名</label>
                 <div class="col-md-6">
                     <input type="text" class="form-control" name="UserName" value="@Model.UserName"
-                           placeholder="用户名" required maxlength="@EventCloud.Users.User.MaxUserNameLength">
+                           placeholder="用户名" required maxlength="@TaskManager.Users.User.MaxUserNameLength">
                 </div>
             </div>
             <div class="form-group">
                 <label for="Name" class="col-md-2 control-label">密码</label>
                 <div class="col-md-6">
                     <input type="password" class="form-control" name="Password" value="@Model.Password"
-                           placeholder="密码" required maxlength="@EventCloud.Users.User.MaxPasswordLength">
+                           placeholder="密码" required maxlength="@TaskManager.Users.User.MaxPasswordLength">
                 </div>
             </div>
             <div class="form-group">

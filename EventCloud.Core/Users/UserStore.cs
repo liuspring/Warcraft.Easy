@@ -1,10 +1,10 @@
 using Abp.Authorization.Users;
 using Abp.Domain.Repositories;
 using Abp.Domain.Uow;
-using EventCloud.Authorization.Roles;
-using EventCloud.MultiTenancy;
+using TaskManager.Authorization.Roles;
+using TaskManager.MultiTenancy;
 
-namespace EventCloud.Users
+namespace TaskManager.Users
 {
     public class UserStore : AbpUserStore<Tenant, Role, User>
     {

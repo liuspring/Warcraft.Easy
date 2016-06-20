@@ -1,8 +1,8 @@
 using System.Threading.Tasks;
 using Abp.Domain.Services;
-using EventCloud.Users;
+using TaskManager.Users;
 
-namespace EventCloud.Events
+namespace TaskManager.Events
 {
     public interface IEventRegistrationPolicy : IDomainService
     {
