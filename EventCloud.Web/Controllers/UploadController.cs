@@ -39,7 +39,7 @@ namespace EventCloud.Web.Controllers
                     }
                     filePath = uploadFile +"//"+ currentFileName;
                     uploadObj.SaveAs(filePath);
-                    //filePath = "http://" + Request.Url.Authority + uploadFilePath +"//"+ currentFileName;
+                    filePath = uploadFilePath +"//"+ currentFileName;
                 }
             }
             catch (Exception )

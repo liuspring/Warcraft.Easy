@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.IO;
@@ -27,12 +28,12 @@ namespace EventCloud.Versions
         public byte[] ZipFile { get; set; }
 
         [Column("zip_filename")]
-        [StringLength(50)]
+        [StringLength(100)]
         [Description("上传文件名称")]
         public string ZipFileName { get; set; }
 
         [Column("zip_filepath")]
-        [StringLength(50)]
+        [StringLength(200)]
         [Description("上传文件路径")]
         public string ZipFilePath { get; set; }
 
@@ -45,7 +46,8 @@ namespace EventCloud.Versions
                 ZipFileName = zipFileName,
                 ZipFilePath = zipFilePath
             };
-            FileStream fs = File.OpenRead(zipFilePath);
+
+            FileStream fs = File.OpenRead(AppDomain.CurrentDomain.BaseDirectory + zipFilePath);
             var buffer = new byte[fs.Length];
             fs.Read(buffer, 0, buffer.Length);
             versionInfo.ZipFile = buffer;

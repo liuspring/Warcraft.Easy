@@ -130,6 +130,10 @@
     <Compile Include="Migrations\201606190823305_AlterVersion.Designer.cs">
       <DependentUpon>201606190823305_AlterVersion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606200316207_AlterVersionInfo.cs" />
+    <Compile Include="Migrations\201606200316207_AlterVersionInfo.Designer.cs">
+      <DependentUpon>201606200316207_AlterVersionInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\DefaultTenantRoleAndUserBuilder.cs" />
     <Compile Include="Migrations\SeedData\InitialDataBuilder.cs" />
@@ -156,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606190823305_AlterVersion.resx">
       <DependentUpon>201606190823305_AlterVersion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606200316207_AlterVersionInfo.resx">
+      <DependentUpon>201606200316207_AlterVersionInfo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Web.UI.WebControls;
+using Abp.Application.Navigation;
 using Abp.Auditing;
 using Abp.Authorization;
 using Abp.AutoMapper;
@@ -14,9 +17,9 @@ namespace EventCloud.Sessions
         {
             var output = new GetCurrentLoginInformationsOutput
             {
-                User = (await GetCurrentUserAsync()).MapTo<UserLoginInfoDto>()
+                User = (await GetCurrentUserAsync()).MapTo<UserLoginInfoDto>(),
+               
             };
-
             if (AbpSession.TenantId.HasValue)
             {
                 output.Tenant = (await GetCurrentTenantAsync()).MapTo<TenantLoginInfoDto>();

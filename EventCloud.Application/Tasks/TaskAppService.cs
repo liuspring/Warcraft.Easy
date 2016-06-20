@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
@@ -23,12 +25,11 @@ namespace EventCloud.Tasks
 
         public int Create(CreateTaskInput input)
         {
-            var task = Task.Create(input.TaskName, input.CategoryId, input.NodeId, input.State, input.Version,
-                input.AppConfigJson,
-                input.Cron, input.MainClassDllFileName, input.MainClassNameSpace, input.Remark);
-            //var a= _taskRepository.Insert(task);
+            var task = Task.Create(input.TaskName, input.CategoryId, input.NodeId, input.State,
+                input.Version, input.AppConfigJson, input.Cron, input.MainClassDllFileName,
+                input.MainClassNameSpace, input.Remark);
+            _taskRepository.Insert(task);
             var versionInfo = VersionInfo.Create(task.Id, input.FileZipName, input.FileZipPath);
-            versionInfo.TaskId = 2;
             _versionInfoRepository.Insert(versionInfo);
             return task.Id;
         }

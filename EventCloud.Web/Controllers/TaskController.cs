@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -27,6 +28,8 @@ namespace EventCloud.Web.Controllers
         // GET: /Task/
         public ActionResult Index()
         {
+            var a = System.AppDomain.CurrentDomain;
+
             return View();
         }
 

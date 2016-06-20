@@ -32,5 +32,6 @@ namespace EventCloud.Web.Controllers
         {
             identityResult.CheckErrors(LocalizationManager);
         }
+
     }
 }

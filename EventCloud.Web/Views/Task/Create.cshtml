@@ -135,7 +135,7 @@
         $("#FileUpload").on("fileuploaded", function (event, data, previewId, index) {
             if (data.response.result.ret) {
                 $("#divFileZipName span b").html(data.response.result.filename);
-                $("#FileZipName").val(data.response.result.filesavename);
+                $("#FileZipName").val(data.response.result.filename);
                 $("#FileZipPath").val(data.response.result.filesavename);
             } else {
                 gDialog.fAlert("上传文件失败！");
